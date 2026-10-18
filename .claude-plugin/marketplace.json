@@ -1,0 +1,14 @@
+{
+  "name": "public-skills",
+  "owner": { "name": "APG Software" },
+  "metadata": {
+    "description": "Guided question-and-answer setups APG gives to the businesses it works with. Nothing in here is about any one business."
+  },
+  "plugins": [
+    {
+      "name": "business-walkthrough",
+      "source": "./plugins/business-walkthrough",
+      "description": "/business-walkthrough: an hour with your leadership team, talking to Claude, that draws how your business runs so you can check it."
+    }
+  ]
+}

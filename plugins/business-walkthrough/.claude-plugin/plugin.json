@@ -1,0 +1,6 @@
+{
+  "name": "business-walkthrough",
+  "version": "0.1.0",
+  "description": "A guided hour for a leadership team: Claude plays back what it already knows about the business, then draws the stages, teams, sites and how a typical job moves, confirmed step by step. Ends with one file for APG and a page the business keeps.",
+  "author": { "name": "APG Software" }
+}
