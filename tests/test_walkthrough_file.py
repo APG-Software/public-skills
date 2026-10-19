@@ -7,10 +7,10 @@ from skilltools import REPO
 REF = REPO / "plugins/business-walkthrough/skills/business-walkthrough/references/walkthrough-file.md"
 KEYS = {"walkthrough", "walkthrough_version", "status", "date", "business", "website",
         "in_the_room", "recorded", "page_confirmed", "flows", "reference_jobs",
-        "consent_to_send", "sent_via"}
-SECTIONS = ["## The stages", "## Teams and sites", "## Systems by step",
-            "## How a typical job moves", "## Where work waits", "## Parking list",
-            "## Questions log"]
+        "consent_to_send", "sent_via", "bundle_version", "service_lines"}
+SECTIONS = ["## What they sell", "## The customer's journey", "## Teams and sites",
+            "## Systems by step", "## How a typical job moves", "## Where work waits",
+            "## Ideas and repeated work", "## Parking list", "## Questions log"]
 
 
 def _example():

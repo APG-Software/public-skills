@@ -12,31 +12,48 @@ clean page they keep). Copy their structure and class names. Never copy their co
 
 1. **Title** "How [Business] works", and one line under it: "Check each part. Tell me what's
    missing or needs changing."
-2. **Progress bar** (`wp-progress`): five segments, Open · What you make · Teams and sites ·
-   How a job moves · Where work waits. Done segments filled, the current one outlined.
-3. **What you make**: the range as short chips, grouped by flow.
-4. **A value-chain strip for each flow** (`wp-strip`): the stages left to right as chevrons,
-   in their words, with the flow's name on the left ("Made to order from drawings").
-5. **Teams and sites** (`wp-teams`): one box per team (`wp-team`) with the leading role under the
-   name, and a row of sites, each with what happens there. **No names, no counts, no reporting
-   lines.** Offshore appears only as a place.
-6. **A swimlane for each flow** (`wp-lane`), drawn in inline SVG:
-   - one lane per team, plus a "Systems" note on each step: the step (`wp-step`) on line one, the
-     system on line two ("Log the job / CRM and job system");
-   - numbered steps; side branches get a letter (3a);
+2. **Progress bar** (`wp-progress`): seven segments, Open · What you sell · Journey ·
+   Organisation · How work moves · Systems · Stuck and ideas. Done segments filled, the current
+   one outlined.
+3. **What you sell** (`wp-lines`): one group per **service line** ("Made to order from
+   drawings"), the products as cards inside it, and who buys and how they reach you underneath.
+4. **The customer's journey** (`wp-strip`): one journey strip per service line (the audit's value-chain strip), the stages left to
+   right as chevrons in their words, and a **behind the scenes** row under them for the
+   supporting work (buying, hiring, systems, finance).
+5. **Organisation** (`wp-teams`): an org chart by department, one box per department
+   (`wp-team`) with the leading role under the name, and the **sites** as pins with what
+   happens at each. **No names, no counts, no reporting lines.** Offshore appears only as a
+   place. After Part 4, each department box also carries a short **every week** list.
+6. **How the work moves** (`wp-lane`): a swimlane per service line, under its journey strip,
+   drawn in inline SVG:
+   - one lane per department, the journey's stages as columns;
+   - numbered steps (`wp-step`): the step on line one, the system on line two ("Log the job /
+     CRM and job system"); side branches get a letter (3a);
    - decisions as diamonds, **both branches labelled**;
    - **hand-offs** between lanes (`wp-handoff`) as arrows;
-   - **waiting points** (`wp-wait`): an **amber** dot with a short label, only ever on a
-     hand-off arrow, **never on a team box or a person**;
+   - about 12 steps at most per line. More than that, group small steps.
+7. **Systems**: a row under the journey, each system spanning the stages it's used in, with a
+   two-way arrow wherever the same thing is typed into two systems.
+8. **Stuck and ideas** (Part 6):
+   - **waiting points** (`wp-wait`): an **amber** lettered dot, only ever on a hand-off arrow,
+     **never on a team box or a person**, explained in a list under the drawing;
+   - a **repeat badge** (`wp-repeat`): a small circular-arrows mark on a step the room says is
+     done the same way over and over;
+   - **idea notes** (`wp-idea`): a short note pinned to the **stage** it's about, in the room's
+     own words ("Idea · Won stage: one place for the latest drawings"), plus one note for what
+     they'd spend more time on;
    - **View A / View B** (`wp-fork`): a dashed fork wherever the room disagreed, both views
-     labelled, and the same item on the parking list;
-   - about 12 steps at most per flow. More than that, group small steps.
-7. **Parking list**: numbered, short, with who could answer each.
-8. **A legend**: box = step, diamond = decision, arrow between lanes = hand-off, amber dot =
-   where work waits, dashed = View A / View B.
+     labelled, and the same item on the parking list.
+9. **Parking list**: numbered, short, with who could answer each.
+10. **A legend**: box = step, diamond = decision, arrow between lanes = hand-off, amber dot =
+    where work waits, circular arrows = repeated, note = idea, dashed = not yet confirmed or
+    View A / View B.
 
-Build up only what's been covered: after Part 1 the page has the title, progress bar, range and
-strips; Part 2 adds teams and sites; Part 3 adds the swimlanes; Part 4 adds the waiting points.
+**Starting from the bundle.** If the context bundle has a `draft-page.json`, draw it first, in
+Part 0, with every item **dashed** until the room confirms it. As each part is confirmed, its
+items turn solid. Anything the room removes disappears; anything they add is drawn solid.
+
+Build up only what's been covered: each part adds its own section, and the progress bar moves on.
 
 ## 2. How it must look
 
@@ -82,10 +99,12 @@ In this order:
 
 ## 5. The page they keep
 
-At the very end, make a **new** artifact, titled "How [Business] works", that holds the range, the
-flows and their strips, the teams and sites, and the swimlanes with systems. Then **remove**:
+At the very end, make a **new** artifact, titled "How [Business] works", that holds what they
+sell, the journeys, the organisation and sites, the swimlanes with systems, and the every-week
+lists. Then **remove**:
 
 - every waiting point and its label;
+- every idea note and repeat badge (those go to Adam in the file);
 - every View A / View B fork (use the view the room settled on; if none, leave the step plain and
   say so in the file);
 - the parking list;

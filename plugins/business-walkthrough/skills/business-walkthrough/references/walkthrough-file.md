@@ -18,6 +18,8 @@ under it are for a person. Write every section, in this order.
     `assumed`;
   - `UNCONFIRMED`: they weren't sure, or the room disagreed (View A / View B); also on the parking
     list.
+- **`bundle_version`** is copied from the context bundle's `about.json`, or `none` if there was no
+  bundle, so APG knows which draft the room was correcting.
 - **The typical-job swimlanes are not reference jobs.** They describe how a typical job moves, not
   any specific job. Write `reference_jobs: none` in the header, always.
 - **No names, emails, phone numbers or counts of people.** Teams by role ("led by the Design
@@ -36,7 +38,8 @@ Ridgeline Steel is made up. Everything below is invented for illustration.
 ````markdown
 ---
 walkthrough: business
-walkthrough_version: 0.1.0
+walkthrough_version: 0.2.0
+bundle_version: ridgeline-steel-v1   # from the context bundle's about.json; "none" if there was no bundle
 status: complete              # complete | incomplete
 date: 2026-10-15
 business: Ridgeline Steel
@@ -44,9 +47,10 @@ website: https://ridgelinesteel.example
 in_the_room: [Managing Director, Sales Manager, Drafting Manager, Finance Manager]
 recorded: yes                 # yes | no | declined
 page_confirmed: true          # true once every part of the page got a yes
-flows:
-  - { name: "Stringers", runs: "made to order from drawings" }
-  - { name: "Balustrade posts", runs: "supplied from stock" }
+service_lines:
+  - { name: "Made to order from drawings", products: ["Stair stringers", "Balustrades"] }
+  - { name: "Supplied from stock", products: ["Balustrade posts", "Handrail brackets"] }
+flows: ["Made to order from drawings", "Supplied from stock"]
 reference_jobs: none
 assumed: []
 unconfirmed: ["who follows up drawing sign-off"]
@@ -56,19 +60,26 @@ sent_via: downloaded by Adam in the room
 
 # How Ridgeline Steel works: walkthrough, 15 October 2026
 
-## The stages
+## What they sell
 
-**What they make**
-- Stair stringers, balustrades, balustrade posts and handrail brackets. Gates stopped last year. (confirmed in the room)
+**Made to order from drawings**
+- Stair stringers and balustrades. Gates stopped last year. (confirmed in the room)
+- Bought by builders, who email plans to sales. (confirmed in the room)
 
-**Stringers: made to order from drawings**
-- Win the job → Draft and get sign-off → Make it → Deliver it → Invoice and get paid. (confirmed in the room)
+**Supplied from stock**
+- Balustrade posts and handrail brackets. (confirmed in the room)
+- Bought by repeat customers, who ring the workshop. (confirmed in the room)
 
-**Balustrade posts: supplied from stock**
-- Take the order → Pick from stock → Deliver it → Invoice and get paid. (confirmed in the room)
+## The customer's journey
 
-**Who buys, and how work arrives**
-- Builders email plans to sales; repeat customers ring the workshop. (confirmed in the room)
+**Made to order from drawings**
+- Enquiry → Quote → Won → Draw and sign off → Make → Deliver → Paid → Warranty. (confirmed in the room)
+
+**Supplied from stock**
+- Order → Check stock → Deliver → Paid. (confirmed in the room)
+
+**Behind the scenes**
+- Buying steel, hiring and training, keeping systems going, month-end. (confirmed in the room)
 
 ## Teams and sites
 
@@ -78,6 +89,10 @@ sent_via: downloaded by Adam in the room
 - Workshop, led by the Production Manager. (confirmed in the room)
 - Dispatch, led by the Dispatch Lead. (from their documents)
 - Accounts, led by the Finance Manager. (confirmed in the room)
+
+**Every week** (the three things each team named)
+- Sales: answer enquiries, price and quote, follow up quotes. (confirmed in the room)
+- Accounts: invoicing, chasing payments, paying suppliers. (confirmed in the room)
 
 **Sites**
 - Newcastle: office and workshop. (from the website)
@@ -188,6 +203,21 @@ flowchart LR
 - Posts, hand-off 2 → 3 (Sales to Dispatch): the stock count is checked by phone. (confirmed in the room)
 - What trips a new starter up: knowing which version of the drawings is the latest. (confirmed in the room)
 
+## Ideas and repeated work
+
+**Done the same way, over and over**
+- Typing delivery notes into the accounts package every afternoon (Stringers step 8, Dispatch). (confirmed in the room)
+
+**Their ideas, pinned to a stage**
+- Won stage: one place for the latest drawings that everyone can see. (confirmed in the room)
+- Paid stage: delivery notes go straight into accounts. (confirmed in the room)
+
+**What they'd spend more time on**
+- Following up quotes they never get back to. (confirmed in the room)
+
+These go to `departments.client_stated_opportunity` and `departments.freed_time_intent`, cited
+to the recording.
+
 ## Parking list
 
 1. Who follows up drawing sign-off: Sales or Drafting? → Sales Manager and Drafting Manager
@@ -198,7 +228,7 @@ flowchart LR
 | Q | Asked | Answer, in short | Mark |
 |---|---|---|---|
 | Q1 | Play back | Right, except gates stopped last year | confirmed in the room |
-| Q4 | Kinds of job | Stringers to order; posts from stock | confirmed in the room |
+| Q3 | Service lines | Stringers to order; posts from stock | confirmed in the room |
 | Q8 | Sites | Newcastle, Brisbane yard, some remote | confirmed in the room |
 | Q16 | Where a job waits | Between Sales and Drafting | confirmed in the room |
 | — | Offered, not asked | A figure for how many jobs a month (not recorded) | offered, not asked |

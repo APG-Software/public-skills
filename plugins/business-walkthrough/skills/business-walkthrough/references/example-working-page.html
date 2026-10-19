@@ -34,6 +34,12 @@ clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%
 .wp-team{background:var(--panel);border:2px solid var(--line);border-radius:10px;padding:10px 14px}
 .wp-team b{display:block}
 .wp-team small{color:var(--muted);font-size:16px}
+.weekly{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:3px}
+.weekly li{font-size:15px;background:var(--chip);border-radius:4px;padding:1px 8px}
+.wp-lines{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.wp-lines .line{border:2px solid var(--line);border-radius:10px;padding:10px 14px;display:grid;gap:8px;background:var(--panel)}
+.wp-lines small{color:var(--muted);font-size:16px}
+.wp-strip.support li{background:var(--chip)}
 .sites{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .sites div{border-left:4px solid var(--accent);padding:2px 12px;font-size:18px}
 .lanebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin:8px 0}
@@ -53,6 +59,11 @@ svg .handarrow{stroke:var(--accent);stroke-width:3;fill:none}
 .legend{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:16px;margin-top:14px}
 @media (max-width:700px){body{font-size:18px}.cards{display:block;padding:0;list-style:none}}
 
+.ideas{display:flex;flex-wrap:wrap;gap:10px}
+.wp-idea{background:var(--accent-soft);border:1px solid var(--line);border-radius:8px;padding:10px 14px;max-width:320px;font-size:18px}
+.wp-idea small{display:block;color:var(--muted);font-size:15px}
+svg .repdot{fill:var(--panel);stroke:var(--accent);stroke-width:2}
+svg .repmark{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round}
 svg .waitdot{fill:var(--amber)}
 svg .waitletter{font-size:15px;font-weight:700;fill:#1d2430}
 .waitlist{list-style:none;padding:0;margin:8px 0 0;font-size:18px}
@@ -68,12 +79,14 @@ svg .forkline{stroke:var(--muted);stroke-width:2;stroke-dasharray:6 4;fill:none}
 <main>
 <h1>How Ridgeline Steel works</h1>
 <p class="sub">Check each part. Tell me what's missing or needs changing.</p>
-<div class="wp-progress"><span class="done">Open</span><span class="done">What you make</span><span class="done">Teams and sites</span><span class="done">How a job moves</span><span class="now">Where work waits</span></div>
-<h2>What you make</h2>
-<div class="chips"><span>Stair stringers</span><span>Balustrades</span><span>Balustrade posts</span><span>Handrail brackets</span></div>
+<div class="wp-progress"><span class="done">Open</span><span class="done">What you sell</span><span class="done">Journey</span><span class="done">Organisation</span><span class="done">How work moves</span><span class="done">Systems</span><span class="now">Stuck and ideas</span></div>
+<h2>What you sell</h2>
+<div class="wp-lines"><div class="line"><b>Made to order from drawings</b><div class="chips"><span>Stair stringers</span><span>Balustrades</span></div><small>Builders · plans by email</small></div><div class="line"><b>Supplied from stock</b><div class="chips"><span>Balustrade posts</span><span>Handrail brackets</span></div><small>Repeat customers · phone</small></div></div>
+<h2>The customer's journey</h2>
 <div class="wp-strip"><div class="flow">Stringers · made to order from drawings</div><ol><li>Win the job</li><li>Draft and get sign-off</li><li>Make it</li><li>Deliver it</li><li>Invoice and get paid</li></ol></div><div class="wp-strip"><div class="flow">Balustrade posts · supplied from stock</div><ol><li>Take the order</li><li>Pick from stock</li><li>Deliver it</li><li>Invoice and get paid</li></ol></div>
-<h2>Teams and sites</h2>
-<div class="wp-teams"><div class="wp-team"><b>Sales</b><small>led by the Sales Manager</small></div><div class="wp-team"><b>Drafting</b><small>led by the Drafting Manager</small></div><div class="wp-team"><b>Workshop</b><small>led by the Production Manager</small></div><div class="wp-team"><b>Dispatch</b><small>led by the Dispatch Lead</small></div><div class="wp-team"><b>Accounts</b><small>led by the Finance Manager</small></div></div>
+<div class="wp-strip support"><div class="flow">Behind the scenes</div><ol><li>Buying steel</li><li>Hiring and training</li><li>Keeping systems going</li><li>Month-end</li></ol></div>
+<h2>Organisation and sites</h2>
+<div class="wp-teams"><div class="wp-team"><b>Sales</b><small>led by the Sales Manager</small><ul class="weekly"><li>Answer enquiries</li><li>Price and quote</li><li>Follow up quotes</li></ul></div><div class="wp-team"><b>Drafting</b><small>led by the Drafting Manager</small><ul class="weekly"><li>Draw stringers</li><li>Send for sign-off</li><li>Manage changes</li></ul></div><div class="wp-team"><b>Workshop</b><small>led by the Production Manager</small><ul class="weekly"><li>Cut and weld</li><li>Finish</li><li>Report problems</li></ul></div><div class="wp-team"><b>Dispatch</b><small>led by the Dispatch Lead</small><ul class="weekly"><li>Book trucks</li><li>Deliver</li><li>Count stock</li></ul></div><div class="wp-team"><b>Accounts</b><small>led by the Finance Manager</small><ul class="weekly"><li>Invoicing</li><li>Chasing payments</li><li>Paying suppliers</li></ul></div></div>
 <div class="sites"><div><b>Newcastle</b> · office and workshop</div><div><b>Brisbane</b> · yard and dispatch</div><div><b>Working remotely</b> · two members of the drafting team</div></div>
 <h2>How a typical job moves: Stringers · made to order from drawings</h2><div class="wp-lane"><div class="lanebox"><svg viewBox="0 0 1858 750" width="1858" height="750" role="img" aria-label="Stringers · made to order from drawings">
 <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
@@ -149,6 +162,7 @@ svg .forkline{stroke:var(--muted);stroke-width:2;stroke-dasharray:6 4;fill:none}
 <rect class="box" x="1478.0" y="478.0" width="164.0" height="60.0" rx="8"/>
 <text class="steptext" x="1560.0" y="504" text-anchor="middle">8 Book truck, deliver</text>
 <text class="systext" x="1560.0" y="526" text-anchor="middle">Job system</text>
+<g class="wp-repeat"><circle cx="1640.0" cy="480.0" r="11" class="repdot"/><path class="repmark" d="M1645.0 477.0a5 5 0 1 0 1 4" /><path class="repmark" d="M1646.0 473.0v4h-4" /></g>
 </g>
 <g class="wp-step">
 <rect class="box" x="1670.0" y="628.0" width="164.0" height="60.0" rx="8"/>
@@ -196,8 +210,9 @@ svg .forkline{stroke:var(--muted);stroke-width:2;stroke-dasharray:6 4;fill:none}
 <text class="systext" x="792.0" y="376" text-anchor="middle">Accounts package</text>
 </g>
 </svg></div><ul class="waitlist"><li><span class="waitkey">A</span> Hand-off 2 → 3: Stock count checked by phone</li></ul><ol class="cards"><li><b>1 Order by phone</b> <small>(Sales)</small> <small>· Phone and CRM</small></li><li><b>2 In stock?</b> <small>(Sales)</small> <small>· Job system</small></li><li><b>2a Order in</b> <small>(Sales)</small> <small>· Email to supplier</small></li><li><b>3 Pick and deliver</b> <small>(Dispatch)</small> <small>· Job system</small></li><li><b>4 Invoice</b> <small>(Accounts)</small> <small>· Accounts package</small></li></ol></div>
+<h2>Your ideas</h2><div class="ideas"><div class="wp-idea"><small>Won stage</small>One place for the latest drawings that everyone can see</div><div class="wp-idea"><small>Paid stage</small>Delivery notes go straight into accounts</div><div class="wp-idea"><small>More time for</small>Following up quotes we never get back to</div></div>
 <h2>Parking list</h2><ol class="parking"><li>Who follows up drawing sign-off: Sales or Drafting? (View A / View B) → Sales Manager and Drafting Manager</li><li>Does the Brisbane yard hold its own stock list? → Dispatch Lead</li></ol>
-<div class="legend"><span>Box = step</span><span>Diamond = decision</span><span>Thick arrow = hand-off between teams</span><span class="amber">● Amber = where work waits</span><span>Dashed = View A / View B</span></div>
+<div class="legend"><span>Box = step</span><span>Diamond = decision</span><span>Thick arrow = hand-off between teams</span><span class="amber">● Amber = where work waits</span><span>Circular arrows = repeated</span><span>Note = idea</span><span>Dashed = View A / View B</span></div>
 </main>
 </body>
 </html>

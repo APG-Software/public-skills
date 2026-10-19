@@ -32,15 +32,23 @@ def test_keep_page_has_no_waits_names_or_counts():
     html = _read("example-keep-page.html")
     assert "wp-wait" not in html
     assert "wp-fork" not in html
+    assert "wp-idea" not in html
     text = re.sub(r"<[^>]+>", " ", html).lower()
     assert not re.search(r"\b\d+\s+(people|staff|fte)\b", text)
     for w in BANNED:
         assert w not in text, w
 
 
+def test_working_page_shows_lines_ideas_and_repeats():
+    html = _read("example-working-page.html")
+    for cls in ("wp-lines", "wp-strip", "wp-teams", "wp-lane", "wp-idea", "wp-repeat"):
+        assert f'class="{cls}' in html or f' {cls}"' in html or f'class="{cls}"' in html, cls
+
+
 def test_guide_states_the_layout_and_fallbacks():
     g = _read("living-page.md").lower()
     for needle in ("progress bar", "value-chain strip", "amber", "projector",
                    "update the same artifact", "one new artifact per part",
-                   "numbered list grouped by team", "mermaid"):
+                   "numbered list grouped by team", "mermaid", "draft-page.json",
+                   "dashed", "idea note", "repeat badge", "service line"):
         assert needle in g, needle
