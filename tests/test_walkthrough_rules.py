@@ -12,8 +12,8 @@ def questions():
 
 def test_parts_in_order():
     text = body(SKILL)
-    heads = ["Part 0 of 4", "Part 1 of 4", "Part 2 of 4", "Part 3 of 4", "Part 4 of 4",
-             "Check and finish"]
+    heads = ["Part 0 of 6", "Part 1 of 6", "Part 2 of 6", "Part 3 of 6", "Part 4 of 6",
+             "Part 5 of 6", "Part 6 of 6", "Check and finish"]
     positions = [text.find(h) for h in heads]
     assert all(p >= 0 for p in positions), dict(zip(heads, positions))
     assert positions == sorted(positions)
@@ -42,7 +42,8 @@ def test_required_rules_are_stated():
     text = body(SKILL).lower()
     for needle in ("documentation", "view a / view b", "starter page", "numbered",
                    "not a specific real job", "amber", "parking list",
-                   "fathom", "self-check", "ridgeline steel"):
+                   "fathom", "self-check", "ridgeline steel", "context bundle",
+                   "draft-page.json", "service line", "journey", "idea"):
         assert needle in text, needle
 
 
