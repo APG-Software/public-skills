@@ -6,13 +6,11 @@
 <title>How Ridgeline Steel works</title>
 <!-- Example only. Ridgeline Steel is a made-up business; nothing here describes a real one. -->
 <style>
-:root{--bg:#fbfaf7;--panel:#ffffff;--ink:#1d2430;--muted:#5b6575;--line:#c9cfd8;
---accent:#1f5f8b;--accent-soft:#e3eef6;--amber:#d48806;--amber-soft:#fff3d6;--chip:#eef1f4}
-@media (prefers-color-scheme: dark){:root{--bg:#14181f;--panel:#1c222b;--ink:#e8ecf1;
---muted:#a6b0bd;--line:#3a4452;--accent:#7fb6dd;--accent-soft:#1f3243;--amber:#f0b23a;
---amber-soft:#3a2e14;--chip:#26303b}}
+:root{color-scheme:light;--bg:#f7f7f3;--panel:#ffffff;--ink:#0d0d0c;--body:#3a3a37;--muted:#55554f;--line:#d8d8d1;
+--accent:#3f7a0e;--accent-soft:#eef6e4;--lime:#90f23c;--lime-deep:#6fc91f;--amber:#d48806;
+--amber-soft:#fff3d6;--chip:#f1f1ec;--bar:#ffffff}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:20px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;background:var(--bg);color:var(--body);font:20px/1.45 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
 main{max-width:1440px;margin:0 auto;padding:24px 16px 48px}
 h1{font-size:34px;margin:0 0 4px}
 h2{font-size:24px;margin:32px 0 12px}
@@ -20,8 +18,8 @@ h2{font-size:24px;margin:32px 0 12px}
 .wp-progress{display:flex;gap:6px;margin:0 0 8px;flex-wrap:wrap}
 .wp-progress span{flex:1 1 120px;padding:6px 10px;border-radius:6px;border:2px solid var(--line);
 font-size:16px;color:var(--muted);text-align:center}
-.wp-progress .done{background:var(--accent);border-color:var(--accent);color:var(--bg)}
-.wp-progress .now{border-color:var(--accent);color:var(--ink);font-weight:600}
+.wp-progress .done{background:var(--accent-soft);border-color:var(--lime-deep);color:var(--ink)}
+.wp-progress .now{background:var(--lime);border-color:var(--lime);color:#0d0d0c;font-weight:600}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips span{background:var(--chip);border-radius:999px;padding:4px 14px;font-size:18px}
 .wp-strip{margin:10px 0}
@@ -31,7 +29,7 @@ font-size:16px;color:var(--muted);text-align:center}
 clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%,12px 50%)}
 .wp-strip li:first-child{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%)}
 .wp-teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.wp-team{background:var(--panel);border:2px solid var(--line);border-radius:10px;padding:10px 14px}
+.wp-team{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--lime-deep);border-radius:10px;padding:10px 14px}
 .wp-team b{display:block}
 .wp-team small{color:var(--muted);font-size:16px}
 .weekly{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:3px}
@@ -44,7 +42,7 @@ clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%
 .sites div{border-left:4px solid var(--accent);padding:2px 12px;font-size:18px}
 .lanebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin:8px 0}
 .lanebox svg{display:block}
-svg text{fill:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+svg text{fill:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
 svg .lanelabel{font-size:16px;font-weight:600}
 svg .steptext{font-size:16px}
 svg .systext{font-size:14px;fill:var(--muted)}
@@ -58,9 +56,19 @@ svg .handarrow{stroke:var(--accent);stroke-width:3;fill:none}
 .cards small{color:var(--muted)}
 .legend{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:16px;margin-top:14px}
 @media (max-width:700px){body{font-size:18px}.cards{display:block;padding:0;list-style:none}}
+
+.brand{background:var(--bar);border-top:4px solid var(--lime);border-bottom:1px solid var(--line)}
+.brand div{max-width:1440px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.brand svg{width:36px;height:36px;flex:none}
+.brand b{font-family:"Space Grotesk","DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:18px;font-weight:600;letter-spacing:-0.01em;color:var(--ink)}
+.brand span{margin-left:auto;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+h1,h2{font-family:"Space Grotesk","DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);letter-spacing:-0.02em;text-wrap:balance}
+h2{border-left:3px solid var(--lime-deep);padding-left:12px}
+.foot{max-width:1440px;margin:0 auto;padding:16px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
 </style>
 </head>
 <body>
+<header class="brand"><div><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="8" fill="#111111"/><g transform="translate(12 12)" fill="none" stroke="#90F23C" stroke-linecap="round"><circle cx="12" cy="12" r="10" stroke-width="2"/><g stroke-width="1.5"><path d="M8 18 L12 10 L16 18 M9.5 15 L14.5 15"/><circle cx="12" cy="8" r="1.5" fill="#90F23C"/><circle cx="8" cy="20" r="1" fill="#90F23C"/><circle cx="16" cy="20" r="1" fill="#90F23C"/><path d="M12 6.5 L12 8 M8 19 L8 20 M16 19 L16 20"/></g></g><g fill="#90F23C" opacity="0.6"><circle cx="18" cy="18" r="0.8"/><circle cx="30" cy="18" r="0.8"/><circle cx="18" cy="30" r="0.8"/><circle cx="30" cy="30" r="0.8"/></g></svg><b>APG Software</b><span>Business walkthrough</span></div></header>
 <main>
 <h1>How Ridgeline Steel works</h1>
 <p class="sub">As checked by the leadership team on 15 October 2026.</p>
@@ -194,5 +202,6 @@ svg .handarrow{stroke:var(--accent);stroke-width:3;fill:none}
 
 <div class="legend"><span>Box = step</span><span>Diamond = decision</span><span>Thick arrow = hand-off between teams</span></div>
 </main>
+<footer class="foot">Prepared with APG Software · apgsoftware.com</footer>
 </body>
 </html>

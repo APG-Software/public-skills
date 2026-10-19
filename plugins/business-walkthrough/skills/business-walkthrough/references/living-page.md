@@ -60,10 +60,19 @@ Build up only what's been covered: each part adds its own section, and the progr
 - **Self-contained HTML with inline SVG.** No external scripts, fonts, stylesheets or images.
 - **For a projector:** body text at least 20px, step text at least 16px in the SVG, strong
   contrast, generous spacing. Someone at the back of the room must be able to read it.
-- **Light and dark:** colours as CSS variables on `:root`, a dark set under
-  `@media (prefers-color-scheme: dark)`, and an explicit `body` background.
+- **Always light:** colours as CSS variables on `:root` with `color-scheme:light`, and an
+  explicit `body` background. No dark set: a meeting-room laptop in dark mode must still show the
+  light page, which reads best on a projector.
 - **Calm colours.** One accent colour for structure. **Amber** only for waiting points. Never red:
   nothing on the page is an error or a fault.
+- **Lightly branded APG Software.** Copy the `:root` colours, the `.brand` header (the APG mark,
+  "APG Software", "Business walkthrough") and the `.foot` line ("Prepared with APG Software ·
+  apgsoftware.com") from the examples exactly. Paper `#f7f7f3` background, ink `#0d0d0c`
+  headings, green `#3f7a0e` for step boxes and hand-offs, lime `#90f23c` only as a fill (the
+  current progress segment, the header's top edge), never as text on a light background. No
+  gradients, no shadows, no navy. Fonts: `"Space Grotesk"` for headings and `"DM Sans"` for
+  everything else, each with the system fallback, never loaded from outside. The business's own
+  name stays the title; APG's branding stays in the header and footer.
 - **No sideways scroll on the page.** Wide swimlanes sit in a box that scrolls sideways on its
   own. On a narrow screen, also show each flow's steps as stacked cards (team, step, system,
   hand-off).

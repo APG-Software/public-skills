@@ -15,7 +15,9 @@ def test_pages_are_self_contained():
         html = _read(name)
         assert not re.search(r"<script[^>]+src=", html), name
         assert not re.search(r"<link[^>]+href=\"https?:", html), name
-        assert "prefers-color-scheme: dark" in html, name
+        assert "color-scheme:light" in html, name
+        assert "prefers-color-scheme: dark" not in html, name
+        assert 'class="brand"' in html and "APG Software" in html, name
         assert "<svg" in html, name
 
 
