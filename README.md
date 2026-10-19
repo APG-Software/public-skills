@@ -25,6 +25,12 @@ You need a paid Claude plan. On a Team plan, the account **Owner** does this so 
 - **Code execution and file creation** (needed for the drawings and the file)
 - **Web search** (so Claude can read your website)
 
+**Using Claude Code instead?** One line:
+
+```
+/plugin install business-walkthrough --marketplace APG-Software/public-skills
+```
+
 ## On the day
 
 Adam sets up a Project called "How [your business] works" with a one-page starter sheet in it.
