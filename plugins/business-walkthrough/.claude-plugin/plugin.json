@@ -1,7 +1,7 @@
 {
   "name": "business-walkthrough",
-  "version": "0.2.0",
-  "description": "A guided hour for a leadership team: Claude starts from what APG already knows, then draws what the business sells, the customer's journey, the departments and sites, how a typical job moves team by team and system by system, and where work gets stuck, collecting the team's own ideas. Each part is confirmed on screen. Ends with one file for APG and a page the business keeps.",
+  "version": "0.3.0",
+  "description": "A guided hour for a leadership team: Claude opens by naming the six parts and asking the room to talk, starts from what APG already knows, then draws what the business sells, the customer's journey, the departments and sites, how a typical job moves team by team and system by system, and where work gets stuck, collecting the team's own ideas. The page updates as they talk, and every gap is asked as an open question. Ends with one file for APG and a page the business keeps.",
   "author": {
     "name": "APG Software"
   }

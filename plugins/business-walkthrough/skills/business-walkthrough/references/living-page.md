@@ -83,9 +83,11 @@ Build up only what's been covered: each part adds its own section, and the progr
   changed in one line: "Added the Dispatch team and the Brisbane yard."
 - **Batch corrections** within a part: collect the fixes from one confirmation round, then redraw
   once, not after every sentence.
-- Confirm **step by step**, never "looks good?": "Steps 1 to 3: is that right? Anything missing
-  between 3 and 4?" At each diamond: "Is 'builder signs off' really what decides it?" At each
-  waiting point: "Is that the right hand-off?"
+- After each redraw, **ask about the gaps, never "looks good?"**. Point at what's dashed or
+  thin and ask openly: "Here's steps 1 to 3. What happens between 2 and 3 that I haven't got?"
+  At each diamond: "Tell me what really decides which way this goes." At each waiting point:
+  "What's the job waiting for here, and what happens in the meantime?" The page holds what you
+  know; the chat asks about what you don't.
 
 ## 4. If the page won't update or show
 
