@@ -122,3 +122,22 @@ lists. Then **remove**:
 - any name, count or email that slipped in.
 
 Under the title: "As checked by the leadership team on [date]." This page is theirs to share.
+
+## 6. Drawn from a file
+
+When someone brings a walkthrough file, **show the page before you say anything else**. Draw
+the whole working page from the file: every part in section 1, including the swimlanes (from
+the table under "How a typical job moves", with the Mermaid block as the fallback), the
+waiting points, the ideas and the parking list.
+
+- Lines marked `confirmed in the room`, `added by …`, `from their documents` or
+  `from the website` are **solid**. Lines marked `UNCONFIRMED` or `assumed` are **dashed**.
+  An `Also said:` line sits beside the line it differs from, as a View A / View B fork.
+- The progress bar becomes a **coverage bar**: the same seven segments, each filled (nothing
+  open), half-filled (has gaps) or empty (nothing yet). It no longer shows where you are in
+  the hour.
+- A **Still open** panel (`wp-open`) sits under the parking list: the gaps grouped by part,
+  the person's own parts first, at most eight shown, and one line saying how many more.
+- Draw what the file says and nothing more. If a part of the file won't make sense, leave it
+  off and list it as a gap: never fill it in by guessing.
+- If the page won't show, use the fallbacks in section 4, in order.

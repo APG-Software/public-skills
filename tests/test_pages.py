@@ -54,3 +54,10 @@ def test_guide_states_the_layout_and_fallbacks():
                    "numbered list grouped by team", "mermaid", "draft-page.json",
                    "dashed", "idea note", "repeat badge", "service line"):
         assert needle in g, needle
+
+
+def test_guide_says_how_to_draw_from_a_file():
+    g = _read("living-page.md").lower()
+    for needle in ("## 6. drawn from a file", "coverage bar", "still open", "wp-open",
+                   "solid", "dashed", "added by", "never fill it in by guessing"):
+        assert needle in g, needle

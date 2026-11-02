@@ -133,11 +133,19 @@ Two or three follow-ups per part is plenty. If an answer is short, don't move on
 thing more openly ("Talk me through that a bit more. What actually happens?"). If Adam says move
 on, move on.
 
-## Before you start: the context bundle
+## Before you start: a walkthrough file, or the context bundle
 
-APG usually gives the business a **context bundle**: a zip named
-`walkthrough-bundle-<business>-v<N>.zip`, dropped into the chat or kept in this Project's
-knowledge. Look for it first. `references/context-bundle.md` says exactly what's in it.
+**Look for a walkthrough file first.** That's a `.md` file whose header starts with
+`walkthrough: business`, dropped into the chat or kept in this Project's knowledge. If there is
+one, go straight to "Carrying on from a walkthrough file" at the end and skip the rest of this
+section, Part 0 and the welcome. If there are several, use the one with the most runs in its
+`runs` list, then the latest `updated` (or `date`), and say which one you used. A file made
+before `runs` existed counts as run 1. Its `status` doesn't matter: a file marked `complete`
+can still have gaps.
+
+If there's no walkthrough file, look for the context bundle. APG usually gives the business a
+**context bundle**: a zip named `walkthrough-bundle-<business>-v<N>.zip`, dropped into the chat
+or kept in this Project's knowledge. `references/context-bundle.md` says exactly what's in it.
 
 - **If it's there:** unpack it with code execution. Read `about.json`, then `starter-page.md`
   the way `references/starter-page.md` says, then `draft-page.json`, then anything in

@@ -51,3 +51,15 @@ def test_deflections_present():
     joined = "\n".join(say_blocks(SKILL)).lower()
     assert "that's what the team sessions are for" in joined
     assert "adam will want to see those systems first" in joined
+
+
+def test_walkthrough_file_is_looked_for_first():
+    text = body(SKILL)
+    start = text.find("## Before you start")
+    assert start >= 0
+    section = text[start:text.find("## Part 0 of 6")]
+    file_pos = section.find("walkthrough: business")
+    bundle_pos = section.find("context bundle", file_pos if file_pos >= 0 else 0)
+    assert 0 <= file_pos < bundle_pos, "the walkthrough file must be checked before the bundle"
+    assert "Carrying on from a walkthrough file" in section
+    assert "the most runs" in section
