@@ -458,6 +458,97 @@ a numbered list grouped by team with the diagram source. Ask about the gaps the 
 ## Stopping early
 
 If they need to stop, say "No problem. I'll make the file with what we've got." Write the file
-with `status: incomplete` and a **Still to ask** list, and make the page they keep from whatever
-is confirmed. If they come back later in the same Project and say "let's finish the
-walkthrough", read the file, say where you got to, and carry on from the next question.
+with `status: incomplete`, and put the questions you didn't reach in its **Still open** list
+(`references/walkthrough-file.md`). Make the page they keep from whatever is confirmed. Anyone
+can carry on later from that file: see "Carrying on from a walkthrough file".
+
+## Carrying on from a walkthrough file
+
+Someone has been handed the file from an earlier walkthrough. They may be on their own,
+without Adam, and may not have been in the first one. The aim is to **add what the last
+walkthrough didn't cover**, not to check it again. One person's answer is good enough; the
+team sessions do the precise work later. Every hard rule above still applies.
+
+### 1. Show the page first
+
+Before any welcome or question, draw the page from the file, as `references/living-page.md`
+section 6 says. Then send:
+
+```say
+**Here's your business as the walkthrough has it so far.**
+
+Everything on the page came from earlier walkthroughs. The solid parts were talked through. The dashed parts are still open, and the list at the bottom says what's missing.
+
+Before we add to it: **what's your role, and which parts of the business do you know best?** Hit the microphone and talk, or type.
+
+After that you can just look, or we can fill in some of what's missing. Either is fine.
+```
+
+### 2. Find the gaps
+
+Go through the file and list what's open, in this order. Each gap belongs to a part, to the
+question that covers it (Q1 to Q20 above), and to whoever the file says could answer it.
+
+1. **Not asked:** a question missing from the Questions log, or listed under "Still open",
+   "Still to ask" or "Not asked in the room".
+2. **Not checked:** a part of the page the room skipped, or `page_confirmed: false`.
+3. **Open items:** every parking list entry, everything in the header's `unconfirmed` and
+   `assumed`, and every View A / View B or `Also said:` line.
+4. **Thin coverage:** a service line with a journey but no swimlane; a product with no
+   journey; a swimlane step with no system; a stage with no team; a team with no every-week
+   list; a behind-the-scenes item with no owner; a site with no team.
+5. **Says two things:** two lines in the file that don't agree. Three at most.
+6. **Dropped since the bundle:** something in the context bundle or starter page that the
+   file never mentions. Only if the bundle is in this Project.
+
+**Never a gap:** anything about time, pay, volume or how many people, or anything logged as
+`offered, not asked`. Hard rule 2 still applies.
+
+Put the gaps in the page's **Still open** panel (`wp-open`), grouped by part, with the
+person's own parts first. Show at most eight and say how many more there are.
+
+### 3. Just looking, or fill some in
+
+If they only want to look, that's fine: make the page they keep (`references/living-page.md`
+section 5) and don't write a new file. If they say "let's fill some in" later, go to step 4.
+
+### 4. Add to it, part by part
+
+Go through the six parts in order, skipping any they say they don't know. For each part:
+
+1. Play back what's on the page for it in a line or two. Don't read it all out; the page
+   shows it.
+2. Name that part's gaps.
+3. Ask one open question about what didn't get covered: that part's question, narrowed to
+   the gap, with **Things you could talk about:** under it. For example: "This is what the
+   last walkthrough got for how a [line] job moves. What didn't it cover? What would you add?"
+4. Then the usual loop: update the page, say what you added, ask about the next gap.
+
+Rules for carrying on:
+
+- **Never ask "is this right?"** about what's already there. If they correct something on
+  their own, take it in.
+- **Use the same questions, Q1 to Q20. Never number a new one.** Log a narrowed question as,
+  for example, `Q12 (SureFit)`. At most 20 questions in this run.
+- **New answers add; they don't overrule.** Mark what this run adds `added by <role>`. If
+  something plainly differs from an earlier line, keep both: the earlier line stays, the new
+  one goes under it as `Also said:`, and it goes on the parking list in one line. Don't debate
+  it.
+
+### 5. Finish
+
+Write the file again, whole, as `references/walkthrough-file.md` says: everything from the
+earlier runs plus what this run added, one more line in `runs`, `updated` set to today, and
+**Still open** and `open_gaps` worked out again. It's the same one file, named
+`walkthrough-<business-slug>.md`; nothing from an earlier run is left out. Make the page they
+keep. If Adam isn't with them, send:
+
+```say
+**Thanks. Here's the updated file and your page.**
+
+The file now holds everything from every walkthrough so far, so it's the only one you need. If someone else is going to add to it, pass it on one at a time, so there's only ever one copy being added to.
+
+Can this file go to Adam? If yes, download it and email it to him, and he'll have everything the team sessions need.
+```
+
+Write their answer into `consent_to_send`.

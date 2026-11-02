@@ -63,3 +63,36 @@ def test_walkthrough_file_is_looked_for_first():
     assert 0 <= file_pos < bundle_pos, "the walkthrough file must be checked before the bundle"
     assert "Carrying on from a walkthrough file" in section
     assert "the most runs" in section
+
+
+def _carrying_on():
+    text = body(SKILL)
+    start = text.find("## Carrying on from a walkthrough file")
+    assert start >= 0, "no Carrying on section"
+    return text[start:]
+
+
+def test_carrying_on_lists_the_six_gap_kinds():
+    s = _carrying_on()
+    for kind in ("**Not asked:**", "**Not checked:**", "**Open items:**",
+                 "**Thin coverage:**", "**Says two things:**", "**Dropped since the bundle:**"):
+        assert kind in s, kind
+    assert "**Never a gap:**" in s
+    assert "offered, not asked" in s
+
+
+def test_carrying_on_shows_the_page_first_and_adds_not_rechecks():
+    s = _carrying_on().lower()
+    assert s.find("show the page first") < s.find("find the gaps")
+    assert "never ask \"is this right?\"" in s
+    assert "added by <role>" in s
+    assert "also said" in s
+    assert "never number a new one" in s
+    assert "just look" in s
+
+
+def test_carrying_on_say_blocks():
+    blocks = [b.lower() for b in say_blocks(SKILL)]
+    assert any("what's your role" in b for b in blocks)
+    assert any("can this file go to adam" in b for b in blocks)
+    assert any("one at a time" in b for b in blocks)
