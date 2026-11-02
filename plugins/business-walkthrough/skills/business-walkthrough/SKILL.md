@@ -529,7 +529,7 @@ Rules for carrying on:
 - **Never ask "is this right?"** about what's already there. If they correct something on
   their own, take it in.
 - **Use the same questions, Q1 to Q20. Never number a new one.** Log a narrowed question as,
-  for example, `Q12 (SureFit)`. At most 20 questions in this run.
+  for example, `Q12 (balustrade posts)`. At most 20 questions in this run.
 - **New answers add; they don't overrule.** Mark what this run adds `added by <role>`. If
   something plainly differs from an earlier line, keep both: the earlier line stays, the new
   one goes under it as `Also said:`, and it goes on the parking list in one line. Don't debate
