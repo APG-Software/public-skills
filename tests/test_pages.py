@@ -61,3 +61,40 @@ def test_guide_says_how_to_draw_from_a_file():
     for needle in ("## 6. drawn from a file", "coverage bar", "still open", "wp-open",
                    "solid", "dashed", "added by", "never fill it in by guessing"):
         assert needle in g, needle
+
+
+def test_page_template_is_complete_and_clean():
+    html = _read("page-template.html")
+    assert not re.search(r"<script[^>]+src=", html)
+    assert not re.search(r"<link[^>]+href=\"https?:", html)
+    assert "color-scheme:light" in html and "prefers-color-scheme: dark" not in html
+    assert 'class="brand"' in html and "APG Software" in html and 'class="foot"' in html
+    for cls in ("wp-coverage", "wp-lines", "wp-strip", "wp-lanegrid", "wp-step", "wp-cards",
+                "wp-teams", "wp-idea", "wp-repeat", "wp-parking", "wp-open"):
+        assert cls in html, cls
+    for h in ("What you sell", "The customer's journey", "How a typical job moves",
+              "Where work waits", "Teams and sites", "Your systems", "Ideas and repeated work",
+              "Parking list", "Still open"):
+        assert f"<h2>{h}</h2>" in html, h
+    text = re.sub(r"<[^>]+>", " ", re.sub(r"<!--.*?-->", " ", html, flags=re.S)).lower()
+    assert not re.search(r"\b\d+\s+(people|staff|fte)\b", text)
+    for w in BANNED:
+        assert w not in text, w
+
+
+def test_template_waits_sit_on_handoffs_in_the_swimlane():
+    html = _read("page-template.html")
+    lanes = re.findall(r'<div class="wp-lanegrid".*?</div></div>', html, re.S)
+    assert lanes
+    for lane in lanes:
+        for m in re.finditer(r'class="wp-wait"', lane):
+            before = lane[:m.start()]
+            assert before.rfind('class="wp-handoff"') > before.rfind('class="wp-step'), \
+                "waiting point not inside a hand-off"
+
+
+def test_guide_and_skill_point_at_the_template():
+    g = _read("living-page.md")
+    assert "references/page-template.html" in g and "copy it exactly" in g.lower()
+    skill = (REF.parent / "SKILL.md").read_text(encoding="utf-8")
+    assert "references/page-template.html" in skill

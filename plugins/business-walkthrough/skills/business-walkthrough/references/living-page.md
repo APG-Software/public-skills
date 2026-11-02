@@ -125,10 +125,21 @@ Under the title: "As checked by the leadership team on [date]." This page is the
 
 ## 6. Drawn from a file
 
-When someone brings a walkthrough file, **show the page before you say anything else**. Draw
-the whole working page from the file: every part in section 1, including the swimlanes (from
-the table under "How a typical job moves", with the Mermaid block as the fallback), the
-waiting points, the ideas and the parking list.
+When someone brings a walkthrough file, **show the page before you say anything else**.
+
+**Use `references/page-template.html` and copy it exactly**, so everyone who opens the file
+sees the same page: the same styles, class names, section order and layout. Change only the
+words. Repeat or drop the blocks its comments mark "one per": a service line, a journey, a
+swimlane, a team, a site, a system. The swimlane in the template is a grid, not SVG:
+- each lane sits at `grid-row`, and each step at its lane's `grid-row` and at
+  `grid-column` = its order + 1, with `--cols` = the number of steps;
+- the same steps go in the `wp-cards` list for phones;
+- a waiting point is a `wp-wait` inside the `wp-handoff` line of the step it leaves.
+
+Fill it from the file: every part in section 1, including the swimlanes (from the table under
+"How a typical job moves", with the Mermaid block as the fallback), the waiting points, the
+ideas and the parking list. If the file has an "About the business" section, keep that block;
+otherwise drop it.
 
 - Lines marked `confirmed in the room`, `added by …`, `from their documents` or
   `from the website` are **solid**. Lines marked `UNCONFIRMED` or `assumed` are **dashed**.
@@ -140,4 +151,8 @@ waiting points, the ideas and the parking list.
   the person's own parts first, at most eight shown, and one line saying how many more.
 - Draw what the file says and nothing more. If a part of the file won't make sense, leave it
   off and list it as a gap: never fill it in by guessing.
+- After each answer, update the same page, still from the template.
+- The page they keep at the end of a carry-on is also made from the template, with section 5's
+  rules applied. Take out the waiting points, ideas and repeat marks, the parking list, the
+  Still open panel and the coverage bar.
 - If the page won't show, use the fallbacks in section 4, in order.

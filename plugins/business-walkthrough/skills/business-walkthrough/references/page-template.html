@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Ridgeline Steel works</title>
+<!-- The page template. Copy this file exactly: the styles, class names, section order and layout.
+     Change only the words, and repeat or drop blocks marked "one per". Ridgeline Steel is a
+     made-up business; nothing here describes a real one. -->
+<style>
+:root{color-scheme:light;--bg:#f7f7f3;--panel:#ffffff;--ink:#0d0d0c;--body:#3a3a37;--muted:#55554f;--line:#d8d8d1;
+--accent:#3f7a0e;--accent-soft:#eef6e4;--lime:#90f23c;--lime-deep:#6fc91f;--amber:#d48806;
+--amber-soft:#fff3d6;--chip:#f1f1ec;--bar:#ffffff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--body);font:20px/1.45 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1440px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:34px;margin:0 0 4px}
+h2{font-size:26px;margin:40px 0 12px}
+h3{font-size:20px;margin:18px 0 6px;color:var(--ink)}
+.sub{color:var(--muted);margin:0 0 16px}
+.dash{border-style:dashed!important}
+.by{display:inline-block;font-size:15px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:0 6px;margin-left:6px;background:var(--panel)}
+/* coverage bar */
+.wp-coverage{display:flex;gap:6px;margin:0 0 8px;flex-wrap:wrap}
+.wp-coverage span{flex:1 1 130px;padding:6px 10px;border-radius:6px;border:2px solid var(--line);font-size:16px;color:var(--muted);text-align:center;background:var(--panel)}
+.wp-coverage .cov-full{background:var(--accent-soft);border-color:var(--lime-deep);color:var(--ink)}
+.wp-coverage .cov-part{background:linear-gradient(90deg,var(--accent-soft) 50%,var(--panel) 50%);border-color:var(--lime-deep);border-style:dashed;color:var(--ink)}
+.wp-coverage .cov-none{border-style:dashed}
+.runs{font-size:16px;color:var(--muted);margin:0 0 12px}
+/* what you sell */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--chip);border-radius:999px;padding:4px 14px;font-size:17px}
+.wp-lines{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.wp-lines .line{border:2px solid var(--lime-deep);border-radius:10px;padding:12px 14px;display:grid;gap:8px;align-content:start;background:var(--panel)}
+.wp-lines .line b{color:var(--ink)}
+.wp-lines small{color:var(--muted);font-size:16px}
+.note{font-size:18px;margin-top:12px}
+/* journeys */
+.wp-strip{margin:12px 0}
+.wp-strip .flow{font-weight:600;margin-bottom:6px;color:var(--ink)}
+.wp-strip ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;margin:0;padding:0}
+.wp-strip li{background:var(--accent-soft);padding:8px 22px 8px 16px;font-size:17px;
+clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%,12px 50%)}
+.wp-strip li:first-child{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%)}
+.wp-strip.support li{background:var(--chip)}
+/* teams and sites */
+.wp-teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.wp-team{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--lime-deep);border-radius:10px;padding:10px 14px}
+.wp-team b{display:block;color:var(--ink)}
+.wp-team small{color:var(--muted);font-size:16px}
+.wp-team ul{margin:6px 0 0;padding-left:18px;font-size:16px}
+.sites{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:14px}
+.sites div{border-left:4px solid var(--accent);padding:4px 12px;font-size:17px;background:var(--panel)}
+.sites div.gone{border-left-color:var(--line);color:var(--muted);text-decoration:line-through}
+/* swimlane: lanes are rows, steps sit at grid-row (lane) and grid-column (order) */
+.lanebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel);margin:10px 0}
+.wp-lanegrid{display:grid;grid-template-columns:150px repeat(var(--cols),minmax(150px,1fr));gap:8px;padding:12px;min-width:calc(150px + var(--cols) * 158px);align-items:center}
+.wp-lanegrid .ln{grid-column:1;font-weight:700;color:var(--ink);font-size:17px;border-right:3px solid var(--lime-deep);align-self:stretch;display:flex;align-items:center;padding-right:8px;position:sticky;left:0;z-index:1;background:var(--panel)}
+.wp-step{border:2px solid var(--accent);border-radius:8px;padding:8px 10px;font-size:16px;background:var(--accent-soft);line-height:1.3}
+.wp-step b{color:var(--ink);display:block}
+.wp-step .sys{display:block;color:var(--muted);font-size:15px}
+.wp-step.decision{border-style:dashed;background:var(--panel)}
+.wp-handoff{display:block;margin-top:6px;font-size:15px;color:var(--accent);font-weight:600}
+.wp-wait{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--amber);color:#fff;font-size:14px;font-weight:700;margin-left:6px;vertical-align:middle}
+.wp-repeat{display:inline-block;font-size:19px;font-weight:700;color:var(--accent);margin-left:4px;line-height:1}
+.wp-cards{display:none;list-style:none;margin:8px 0;padding:0}
+.wp-cards li{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:8px 12px;margin:6px 0;font-size:17px}
+/* systems */
+table{border-collapse:collapse;width:100%;background:var(--panel);font-size:17px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--chip);color:var(--ink)}
+.tablebox{overflow-x:auto}
+.flowsys{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:17px;margin:8px 0}
+.flowsys span{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:3px 10px}
+.flowsys em{color:var(--muted);font-style:normal}
+/* waits, ideas, parking, still open */
+.waits{list-style:none;padding:0}
+.waits li{margin:6px 0}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.wp-idea{background:var(--amber-soft);border-left:4px solid var(--amber);border-radius:6px;padding:6px 10px;margin:6px 0;font-size:17px;list-style:none}
+.card ul{padding:0;margin:0}
+.wp-parking li{margin:4px 0}
+.wp-parking em,.wp-open em{color:var(--muted);font-style:normal}
+.wp-open{border:2px dashed var(--accent);border-radius:12px;padding:12px 18px;background:var(--panel)}
+.wp-open h3{margin-top:4px}
+.wp-open li{margin:6px 0}
+.wp-open .kind{display:inline-block;font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.legend{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:16px;margin-top:28px}
+.sw{display:inline-block;width:16px;height:16px;border-radius:4px;vertical-align:-2px;margin-right:6px}
+/* brand */
+.brand{background:var(--bar);border-top:4px solid var(--lime);border-bottom:1px solid var(--line)}
+.brand div{max-width:1440px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.brand svg{width:36px;height:36px;flex:none}
+.brand b{font-family:"Space Grotesk","DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:18px;font-weight:600;letter-spacing:-0.01em;color:var(--ink)}
+.brand span{margin-left:auto;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+h1,h2{font-family:"Space Grotesk","DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);letter-spacing:-0.02em;text-wrap:balance}
+h2{border-left:3px solid var(--lime-deep);padding-left:12px}
+.foot{max-width:1440px;margin:0 auto;padding:16px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+@media (max-width:700px){body{font-size:18px}.lanebox{display:none}.wp-cards{display:block}}
+</style>
+</head>
+<body>
+<header class="brand"><div><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="8" fill="#111111"/><g transform="translate(12 12)" fill="none" stroke="#90F23C" stroke-linecap="round"><circle cx="12" cy="12" r="10" stroke-width="2"/><g stroke-width="1.5"><path d="M8 18 L12 10 L16 18 M9.5 15 L14.5 15"/><circle cx="12" cy="8" r="1.5" fill="#90F23C"/><circle cx="8" cy="20" r="1" fill="#90F23C"/><circle cx="16" cy="20" r="1" fill="#90F23C"/><path d="M12 6.5 L12 8 M8 19 L8 20 M16 19 L16 20"/></g></g><g fill="#90F23C" opacity="0.6"><circle cx="18" cy="18" r="0.8"/><circle cx="30" cy="18" r="0.8"/><circle cx="18" cy="30" r="0.8"/><circle cx="30" cy="30" r="0.8"/></g></svg><b>APG Software</b><span>Business walkthrough</span></div></header>
+<main>
+<h1>How Ridgeline Steel works</h1>
+<p class="sub">Everything the walkthrough has so far. Solid parts were talked through; dashed parts are still open, and the list at the bottom says what's missing.</p>
+<!-- coverage bar: cov-full = nothing open, cov-part = has gaps, cov-none = nothing yet -->
+<div class="wp-coverage"><span class="cov-full">About</span><span class="cov-full">What you sell</span><span class="cov-full">Journey</span><span class="cov-part">Organisation</span><span class="cov-part">How work moves</span><span class="cov-full">Systems</span><span class="cov-full">Stuck and ideas</span></div>
+<!-- one line per run, from the file's runs list -->
+<p class="runs">Walkthrough 1: leadership room, 15 October 2026 · Walkthrough 2: Production Manager, 29 October 2026</p>
+
+<h2>About the business</h2>
+<p>Family-owned steel fabricator in Newcastle, making stair stringers and balustrades for builders. Gates stopped last year. Much of the job is drafting before any steel is cut.</p>
+
+<h2>What you sell</h2>
+<!-- one .line per service line -->
+<div class="wp-lines">
+<div class="line"><b>Made to order from drawings</b><div class="chips"><span>Stair stringers</span><span>Balustrades</span></div><small>Builders · plans emailed to Sales</small></div>
+<div class="line"><b>Supplied from stock</b><div class="chips"><span>Balustrade posts</span><span>Handrail brackets</span></div><small>Repeat customers · by phone</small></div>
+</div>
+<p class="note"><b>Delivery</b> on your own truck from Newcastle; the Brisbane yard delivers up there.</p>
+
+<h2>The customer's journey</h2>
+<!-- one .wp-strip per service line, then the behind-the-scenes strip -->
+<div class="wp-strip"><div class="flow">Stair stringers · made to order from drawings</div><ol><li>Enquiry</li><li>Quote</li><li>Won</li><li>Draw and sign off</li><li>Make</li><li>Deliver</li><li>Paid</li><li>Warranty</li></ol></div>
+<div class="wp-strip"><div class="flow">Balustrade posts · supplied from stock</div><ol><li>Order</li><li>Check stock</li><li>Deliver</li><li>Paid</li></ol></div>
+<div class="wp-strip support"><div class="flow">Behind the scenes</div><ol><li>Buying steel</li><li>Hiring and training</li><li>Keeping systems going</li><li>Month-end</li></ol></div>
+
+<h2>How a typical job moves</h2>
+<!-- one block per swimlane: an h3, a .lanebox with a .wp-lanegrid, and the same steps as .wp-cards for phones.
+     --cols is the number of step columns. Each lane label sits at grid-row:N. Each step sits at
+     grid-row (its lane) and grid-column (its order + 1). A waiting point is a .wp-wait inside the
+     .wp-handoff line of the step it leaves, never on a team or a person. -->
+<h3>Stair stringers</h3>
+<div class="lanebox"><div class="wp-lanegrid" style="--cols:10">
+<div class="ln" style="grid-row:1">Sales</div>
+<div class="ln" style="grid-row:2">Drafting</div>
+<div class="ln" style="grid-row:3">Workshop</div>
+<div class="ln" style="grid-row:4">Dispatch</div>
+<div class="ln" style="grid-row:5">Accounts</div>
+<div class="wp-step" style="grid-row:1;grid-column:2"><b>1 Plans arrive</b><span class="sys">Email</span></div>
+<div class="wp-step" style="grid-row:1;grid-column:3"><b>2 Price and quote</b><span class="sys">Spreadsheet</span></div>
+<div class="wp-step decision" style="grid-row:1;grid-column:4"><b>3 Accepted?</b><span class="sys">Yes → 4 · No reply → 3a</span></div>
+<div class="wp-step" style="grid-row:1;grid-column:5"><b>3a Follow up</b><span class="sys">Email</span></div>
+<div class="wp-step" style="grid-row:1;grid-column:6"><b>4 Log the job <span class="wp-repeat" title="done the same way over and over">⟳</span></b><span class="sys">CRM and job system</span><span class="wp-handoff">→ Drafting<span class="wp-wait">A</span></span></div>
+<div class="wp-step" style="grid-row:2;grid-column:7"><b>5 Draw stringers</b><span class="sys">CAD</span></div>
+<div class="wp-step decision dash" style="grid-row:2;grid-column:8"><b>6 Signed off?</b><span class="sys">Changes → 5</span><span class="wp-handoff">→ Workshop</span></div>
+<div class="wp-step" style="grid-row:3;grid-column:9"><b>7 Cut, weld, finish</b><span class="sys">Job system</span><span class="wp-handoff">→ Dispatch</span></div>
+<div class="wp-step" style="grid-row:4;grid-column:10"><b>8 Book truck, deliver <span class="wp-repeat" title="done the same way over and over">⟳</span></b><span class="sys">Job system</span><span class="wp-handoff">→ Accounts<span class="wp-wait">B</span></span></div>
+<div class="wp-step" style="grid-row:5;grid-column:11"><b>9 Invoice, follow up</b><span class="sys">Accounts package</span></div>
+</div></div>
+<ol class="wp-cards">
+<li><b>1 Sales</b> · Plans arrive · Email</li>
+<li><b>2 Sales</b> · Price and quote · Spreadsheet</li>
+<li><b>3 Sales</b> · Accepted? Yes → 4; no reply → 3a follow up by email</li>
+<li><b>4 Sales</b> · Log the job · CRM and job system · → Drafting <span class="wp-wait">A</span></li>
+<li><b>5 Drafting</b> · Draw stringers · CAD</li>
+<li><b>6 Drafting</b> · Signed off? Changes → 5 · → Workshop</li>
+<li><b>7 Workshop</b> · Cut, weld, finish · Job system · → Dispatch</li>
+<li><b>8 Dispatch</b> · Book truck, deliver · Job system · → Accounts <span class="wp-wait">B</span></li>
+<li><b>9 Accounts</b> · Invoice, follow up · Accounts package</li>
+</ol>
+
+<h3>Balustrade posts</h3>
+<div class="lanebox"><div class="wp-lanegrid" style="--cols:5">
+<div class="ln" style="grid-row:1">Sales</div>
+<div class="ln" style="grid-row:2">Dispatch</div>
+<div class="ln" style="grid-row:3">Accounts</div>
+<div class="wp-step" style="grid-row:1;grid-column:2"><b>1 Order by phone</b><span class="sys">Phone and CRM</span></div>
+<div class="wp-step decision" style="grid-row:1;grid-column:3"><b>2 In stock?</b><span class="sys">Job system · No → 2a</span><span class="wp-handoff">→ Dispatch<span class="wp-wait">C</span></span></div>
+<div class="wp-step" style="grid-row:1;grid-column:4"><b>2a Order in</b><span class="sys">Email to supplier</span></div>
+<div class="wp-step" style="grid-row:2;grid-column:5"><b>3 Pick and deliver</b><span class="sys">Job system</span><span class="wp-handoff">→ Accounts</span></div>
+<div class="wp-step" style="grid-row:3;grid-column:6"><b>4 Invoice</b><span class="sys">Accounts package</span></div>
+</div></div>
+<ol class="wp-cards">
+<li><b>1 Sales</b> · Order by phone · Phone and CRM</li>
+<li><b>2 Sales</b> · In stock? Yes → 3; no → 2a order in by email · → Dispatch <span class="wp-wait">C</span></li>
+<li><b>3 Dispatch</b> · Pick and deliver · Job system · → Accounts</li>
+<li><b>4 Accounts</b> · Invoice · Accounts package</li>
+</ol>
+
+<h2>Where work waits</h2>
+<!-- one item per waiting point, lettered to match the swimlane -->
+<ul class="waits">
+<li><span class="wp-wait">A</span> Stringers, Sales → Drafting: finding the latest drawings</li>
+<li><span class="wp-wait">B</span> Stringers, Dispatch → Accounts: delivery notes typed into the accounts package again</li>
+<li><span class="wp-wait">C</span> Posts, Sales → Dispatch: the stock count is checked by phone</li>
+</ul>
+
+<h2>Teams and sites</h2>
+<!-- one .wp-team per department: the leading role, never a name or a count. Every-week list once known. -->
+<div class="wp-teams">
+<div class="wp-team"><b>Sales</b><small>led by the Sales Manager</small><ul><li>Answer enquiries</li><li>Price and quote</li><li>Follow up quotes</li></ul></div>
+<div class="wp-team dash"><b>Drafting</b><small>led by the Drafting Manager</small></div>
+<div class="wp-team"><b>Workshop</b><small>led by the Production Manager <span class="by">added by the Production Manager</span></small><ul><li>Cut and weld</li><li>Finish</li><li>Report problems back to Drafting</li></ul></div>
+<div class="wp-team dash"><b>Dispatch</b><small>led by the Dispatch Lead</small></div>
+<div class="wp-team"><b>Accounts</b><small>led by the Finance Manager</small><ul><li>Invoicing</li><li>Chasing payments</li><li>Paying suppliers</li></ul></div>
+</div>
+<!-- one div per site; a site that has closed gets class="gone" -->
+<div class="sites">
+<div><b>Newcastle</b> · office and workshop</div>
+<div><b>Brisbane</b> · yard and dispatch</div>
+<div><b>Working remotely</b> · some of Drafting</div>
+</div>
+
+<h2>Your systems</h2>
+<div class="tablebox"><table>
+<tr><th>System</th><th>Used for</th><th>Steps</th></tr>
+<tr><td>Email</td><td>Plans arrive; orders to suppliers</td><td>Stringers 1; Posts 2a</td></tr>
+<tr><td>Spreadsheet</td><td>Pricing and quoting</td><td>Stringers 2</td></tr>
+<tr><td>CRM</td><td>Logging jobs and phone orders</td><td>Stringers 4; Posts 1</td></tr>
+<tr><td>Job system</td><td>Jobs, stock and dispatch</td><td>Stringers 4, 7, 8; Posts 2, 3</td></tr>
+<tr><td>CAD</td><td>Drawings</td><td>Stringers 5</td></tr>
+<tr><td>Accounts package</td><td>Invoicing</td><td>Stringers 9; Posts 4</td></tr>
+</table></div>
+<h3>How information moves</h3>
+<!-- one .flowsys line per path; "typed again" where the same thing goes in twice -->
+<div class="flowsys"><span>CRM</span><em>→ typed again →</em><span>Job system</span></div>
+<div class="flowsys"><span>Job system</span><em>→ delivery notes typed again →</em><span>Accounts package</span></div>
+
+<h2>Ideas and repeated work</h2>
+<div class="cols">
+<div class="card"><h3>Done the same way, over and over</h3><ul><li class="wp-idea">Typing delivery notes into the accounts package every afternoon (stringers step 8)</li><li class="wp-idea">Logging the job twice, in the CRM and the job system (stringers step 4)</li></ul></div>
+<div class="card"><h3>Your ideas</h3><ul><li class="wp-idea">Won stage: one place for the latest drawings that everyone can see</li><li class="wp-idea">Paid stage: delivery notes go straight into accounts</li></ul></div>
+<div class="card"><h3>What you'd spend more time on</h3><ul><li class="wp-idea">Following up quotes we never get back to</li></ul></div>
+</div>
+
+<h2>Parking list</h2>
+<ol class="wp-parking">
+<li>Who follows up drawing sign-off: Sales or Drafting? <em>→ Sales Manager and Drafting Manager</em></li>
+<li>Does the Brisbane yard hold its own stock list? <em>→ Dispatch Lead</em></li>
+</ol>
+
+<h2>Still open</h2>
+<!-- the gaps from the file's Still open list, grouped by part, the person's own parts first, at most eight -->
+<div class="wp-open">
+<h3>3 things still to fill in</h3>
+<ol>
+<li><span class="kind">Open item</span>Who follows up drawing sign-off (Q10) <em>→ Sales Manager and Drafting Manager</em></li>
+<li><span class="kind">Open item</span>Whether the Brisbane yard holds its own stock list (Q9) <em>→ Dispatch Lead</em></li>
+<li><span class="kind">Thin coverage</span>Drafting and Dispatch have no every-week list (Q13) <em>→ Drafting Manager, Dispatch Lead</em></li>
+</ol>
+</div>
+
+<div class="legend"><span><span class="sw" style="background:var(--accent-soft);border:2px solid var(--accent)"></span>Step</span><span><span class="sw" style="border:2px dashed var(--accent)"></span>Decision, or not yet confirmed</span><span><span class="sw" style="background:var(--amber);border-radius:50%"></span>Where work waits</span><span>⟳ Done the same way, over and over</span><span><span class="sw" style="background:var(--amber-soft);border-left:4px solid var(--amber)"></span>Idea</span></div>
+</main>
+<footer class="foot">Prepared with APG Software · apgsoftware.com</footer>
+</body>
+</html>
