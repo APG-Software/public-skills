@@ -1,8 +1,10 @@
 # The file for Adam
 
-One Markdown file, named `walkthrough-<business-slug>-<YYYY-MM-DD>.md` (the business name in
-lowercase with hyphens, and today's date). The block at the top is for APG's tools; the sections
-under it are for a person. Write every section, in this order.
+One Markdown file, named `walkthrough-<business-slug>.md` (the business name in lowercase with
+hyphens). **It's the same file every time.** A later walkthrough reads it and writes it out
+again, whole, with everything from every earlier run plus what it added, so the newest copy is
+the only one anyone needs. The block at the top is for APG's tools; the sections under it are
+for a person. Write every section, in this order.
 
 ## Rules
 
@@ -14,12 +16,27 @@ under it are for a person. Write every section, in this order.
   - `from their documents`: from a file they dropped in, or their starter page, and not
     contradicted;
   - `from the website`: read from their website, and not contradicted;
+  - `added by <role>`: added in a later run by someone who wasn't in the leadership room
+    (for example `added by the Production Manager`). A role, never a name;
   - `assumed`: a default you applied because nobody knew; also listed under the header's
     `assumed`;
   - `UNCONFIRMED`: they weren't sure, or the room disagreed (View A / View B); also on the parking
     list.
 - **`bundle_version`** is copied from the context bundle's `about.json`, or `none` if there was no
   bundle, so APG knows which draft the room was correcting.
+- **One file, every run.** `date` is the first run's date and never changes. `updated` is the
+  latest run's date. `runs` has one line per run: `{ run, date, by, recorded, parts }`, where
+  `by` is a role or `leadership room` and `parts` lists the parts that run covered. A file from
+  before 0.4.0 has no `runs`: read it as run 1.
+- **Nothing from an earlier run is dropped.** When a later answer plainly differs from an
+  earlier line, keep the earlier line, add the new one under it starting `Also said:`, and put
+  it on the parking list.
+- **Still open** lists every gap left at the end of the run, numbered, each with its kind, the
+  question that covers it and who could answer it. `open_gaps` is how many there are.
+  `status` is `complete` only when `open_gaps` is 0; otherwise `incomplete`. Never list time,
+  pay, volume or headcount as a gap.
+- The **Questions log** has a `Run` column. A question asked again in a later run keeps its
+  number, narrowed in brackets: `Q13 (Workshop)`.
 - **The typical-job swimlanes are not reference jobs.** They describe how a typical job moves, not
   any specific job. Write `reference_jobs: none` in the header, always.
 - **No names, emails, phone numbers or counts of people.** Teams by role ("led by the Design
@@ -28,8 +45,10 @@ under it are for a person. Write every section, in this order.
   `offered, not asked`, with no number.
 - **No passwords, logins, bank or card details, ever.**
 - Step numbers match the page everywhere.
-- `consent_to_send` and `sent_via` are written `not asked` and `not sent` when the file is made.
-  Adam downloads it in the room; if he does, set `sent_via: downloaded by Adam in the room`.
+- `consent_to_send` and `sent_via` start as `not asked` and `not sent`. If Adam downloads it in
+  the room, set `sent_via: downloaded by Adam in the room`. In a later run without Adam, set
+  `consent_to_send` to `yes` or `no` from the answer to "Can this file go to Adam?", and
+  `sent_via: emailed to Adam by <role>` if they say they've sent it.
 
 ## Worked example
 
@@ -40,8 +59,13 @@ Ridgeline Steel is made up. Everything below is invented for illustration.
 walkthrough: business
 walkthrough_version: 0.2.0
 bundle_version: ridgeline-steel-v1   # from the context bundle's about.json; "none" if there was no bundle
-status: complete              # complete | incomplete
+status: incomplete            # complete only when open_gaps is 0
 date: 2026-10-15
+updated: 2026-10-29           # the latest run
+runs:
+  - { run: 1, date: 2026-10-15, by: leadership room, recorded: yes, parts: [all] }
+  - { run: 2, date: 2026-10-29, by: Production Manager, recorded: no, parts: [Teams and sites, How the work moves] }
+open_gaps: 3
 business: Ridgeline Steel
 website: https://ridgelinesteel.example
 in_the_room: [Managing Director, Sales Manager, Drafting Manager, Finance Manager]
@@ -93,6 +117,7 @@ sent_via: downloaded by Adam in the room
 **Every week** (the three things each team named)
 - Sales: answer enquiries, price and quote, follow up quotes. (confirmed in the room)
 - Accounts: invoicing, chasing payments, paying suppliers. (confirmed in the room)
+- Workshop: cut and weld, finish, report problems back to Drafting. (added by the Production Manager)
 
 **Sites**
 - Newcastle: office and workshop. (from the website)
@@ -223,16 +248,23 @@ to the recording.
 1. Who follows up drawing sign-off: Sales or Drafting? → Sales Manager and Drafting Manager
 2. Does the Brisbane yard hold its own stock list? → Dispatch Lead
 
+## Still open
+
+1. Open item: who follows up drawing sign-off (Q10) → Sales Manager and Drafting Manager
+2. Open item: whether the Brisbane yard holds its own stock list (Q9) → Dispatch Lead
+3. Thin coverage: Drafting and Dispatch have no every-week list (Q13) → Drafting Manager, Dispatch Lead
+
 ## Questions log
 
-| Q | Asked | Answer, in short | Mark |
-|---|---|---|---|
-| Q1 | Play back | Right, except gates stopped last year | confirmed in the room |
-| Q3 | Service lines | Stringers to order; posts from stock | confirmed in the room |
-| Q8 | Sites | Newcastle, Brisbane yard, some remote | confirmed in the room |
-| Q16 | Where a job waits | Between Sales and Drafting | confirmed in the room |
-| — | Offered, not asked | A figure for how many jobs a month (not recorded) | offered, not asked |
+| Run | Q | Asked | Answer, in short | Mark |
+|---|---|---|---|---|
+| 1 | Q1 | Play back | Right, except gates stopped last year | confirmed in the room |
+| 1 | Q3 | Service lines | Stringers to order; posts from stock | confirmed in the room |
+| 1 | Q8 | Sites | Newcastle, Brisbane yard, some remote | confirmed in the room |
+| 1 | Q16 | Where a job waits | Between Sales and Drafting | confirmed in the room |
+| 1 | — | Offered, not asked | A figure for how many jobs a month (not recorded) | offered, not asked |
+| 2 | Q13 (Workshop) | Every week | Cut and weld, finish, report problems | added by the Production Manager |
 ````
 
-If the walkthrough stopped early, add a **Still to ask** section after the Parking list, listing
-each unasked question as `- Q12 → next time`.
+If the walkthrough stopped early, the questions not reached go in **Still open** as
+`Not asked: Q12 (second line) → next time`, and `status` stays `incomplete`.
