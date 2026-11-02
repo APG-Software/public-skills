@@ -34,6 +34,14 @@ Adam sets up a Project called "How [your business] works" with a one-page starte
 Open a new chat in that Project, type **/business-walkthrough** and send it. Talk using the
 microphone button in the message box, or type. Rough answers are fine.
 
+## Passing it on
+
+At the end you get one walkthrough file (`walkthrough-<your-business>.md`). Give it to whoever
+should add to it next. They open a new chat, drop the file in, and type
+**/business-walkthrough**. Claude shows the page first, then what's still open, and asks what
+they can add. They get the same file back with everything in it. Pass it on one person at a
+time, so there's only ever one copy.
+
 ## What happens to my information?
 
 The walkthrough runs in your own Claude account, and the page and the file stay there. Nothing is

@@ -1,8 +1,8 @@
 ---
 name: business-walkthrough
-description: Walks a business's leadership team through how their business runs, in about an hour, while Adam from APG guides. Opens by naming the six parts and asking the room to talk rather than type. Starts from the business's context bundle (a zip from APG) or their website, then draws what they sell, the customer's journey through the business, the departments and sites, how a typical job moves team by team and system by system, and where work gets stuck, collecting the room's own ideas. Each part is drawn on one page that updates as they talk, and every gap is asked as an open question that invites a long spoken answer. Ends with one file for Adam and a clean page the business keeps. Use when someone types /business-walkthrough, says "let's do the walkthrough", "business walkthrough" or "how we work", or Adam says to start.
+description: Walks a business's leadership team through how their business runs, in about an hour, while Adam from APG guides. Opens by naming the six parts and asking the room to talk rather than type. Starts from the business's context bundle (a zip from APG) or their website, then draws what they sell, the customer's journey through the business, the departments and sites, how a typical job moves team by team and system by system, and where work gets stuck, collecting the room's own ideas. Each part is drawn on one page that updates as they talk, and every gap is asked as an open question that invites a long spoken answer. Ends with one file for Adam and a clean page the business keeps. Also opens an existing walkthrough file, shows the page first, lists what's still open, and lets the next person add to the same file. Use when someone types /business-walkthrough, says "let's do the walkthrough", "business walkthrough" or "how we work", drops in a walkthrough file, or Adam says to start.
 metadata:
-  version: 0.3.0
+  version: 0.4.0
 ---
 
 # Business walkthrough

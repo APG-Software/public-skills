@@ -27,3 +27,11 @@ def test_skill_version_matches_plugin_version():
     for s in iter_skills():
         plugin = json.loads((s.parents[2] / ".claude-plugin/plugin.json").read_text())
         assert frontmatter(s)["metadata"]["version"] == plugin["version"], s
+
+
+def test_walkthrough_is_0_4_and_mentions_the_file():
+    skill = REPO / "plugins/business-walkthrough/skills/business-walkthrough/SKILL.md"
+    fm = frontmatter(skill)
+    assert fm["metadata"]["version"] == "0.4.0"
+    assert "walkthrough file" in fm["description"]
+    assert "walkthrough file" in (REPO / "README.md").read_text(encoding="utf-8")
