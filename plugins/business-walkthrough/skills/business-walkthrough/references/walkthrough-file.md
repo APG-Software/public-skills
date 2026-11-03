@@ -44,6 +44,8 @@ for a person. Write every section, in this order.
 - **No time, pay or volume figures.** If someone offered one, write it under the Questions log as
   `offered, not asked`, with no number.
 - **No passwords, logins, bank or card details, ever.**
+- **Teams** lines name the department, its leading role, then the other roles in it after a
+  colon: roles only, each once, so the org chart can be drawn from the file.
 - Step numbers match the page everywhere.
 - `consent_to_send` and `sent_via` start as `not asked` and `not sent`. If Adam downloads it in
   the room, set `sent_via: downloaded by Adam in the room`. In a later run without Adam, set
@@ -108,11 +110,11 @@ sent_via: downloaded by Adam in the room
 ## Teams and sites
 
 **Teams**
-- Sales, led by the Sales Manager. (confirmed in the room)
-- Drafting, led by the Drafting Manager. (confirmed in the room)
-- Workshop, led by the Production Manager. (confirmed in the room)
-- Dispatch, led by the Dispatch Lead. (from their documents)
-- Accounts, led by the Finance Manager. (confirmed in the room)
+- Sales, led by the Sales Manager: Estimator, Sales Coordinator. (confirmed in the room)
+- Drafting, led by the Drafting Manager: Drafter, some working remotely. (confirmed in the room)
+- Workshop, led by the Production Manager: Fabricator and welder, Finisher. (confirmed in the room)
+- Dispatch, led by the Dispatch Lead: Driver, Yard hand in Brisbane. (from their documents)
+- Accounts, led by the Finance Manager: Accounts Officer. (confirmed in the room)
 
 **Every week** (the three things each team named)
 - Sales: answer enquiries, price and quote, follow up quotes. (confirmed in the room)

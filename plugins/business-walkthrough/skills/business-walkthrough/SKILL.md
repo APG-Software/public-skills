@@ -2,7 +2,7 @@
 name: business-walkthrough
 description: Walks a business's leadership team through how their business runs, in about an hour, while Adam from APG guides. Opens by naming the six parts and asking the room to talk rather than type. Starts from the business's context bundle (a zip from APG) or their website, then draws what they sell, the customer's journey through the business, the departments and sites, how a typical job moves team by team and system by system, and where work gets stuck, collecting the room's own ideas. Each part is drawn on one page that updates as they talk, and every gap is asked as an open question that invites a long spoken answer. Ends with one file for Adam and a clean page the business keeps. Also opens an existing walkthrough file, shows the page first, lists what's still open, and lets the next person add to the same file. Use when someone types /business-walkthrough, says "let's do the walkthrough", "business walkthrough" or "how we work", drops in a walkthrough file, or Adam says to start.
 metadata:
-  version: 0.4.1
+  version: 0.4.2
 ---
 
 # Business walkthrough
@@ -269,6 +269,7 @@ job's been won?"
 **Q7.** Part 3 of 6 · your organisation. Here are the teams we know of. Tell me how the business is set up: the teams, what each one looks after, and anything that's changed recently.
 Things you could talk about:
 - any team missing, or any that's been merged or split
+- the main roles in each team (the roles, not the people)
 - teams that are small but really are their own team
 - work that's shared between teams, or that nobody really owns
 - anyone working remotely or from another country (just the place, no names)
@@ -285,8 +286,10 @@ _(e.g. "Drafting is led by the Drafting Manager, the Workshop by the Production 
 Pick the closest, then tell me what happens at each place.
 _(e.g. "Office and workshop are in Newcastle. There's a yard in Brisbane that holds stock and does deliveries up there, but doesn't make anything. Some of Drafting works from home.")_
 
-Draw the **org chart by department**, leading roles only, and the **sites** as pins. No names, no
-counts, no reporting lines. Then the loop.
+Draw the **org chart** exactly as the org chart block in `references/page-template.html`: the
+top role, then one box per department with its leading role and the other roles in it, and the
+**sites** as pins underneath. Roles only: no names, no counts, each role once. Ask the room to
+look at the chart and say what's missing or in the wrong place. Then the loop.
 
 ## Part 4 of 6 · how the work moves
 

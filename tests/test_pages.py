@@ -98,3 +98,13 @@ def test_guide_and_skill_point_at_the_template():
     assert "references/page-template.html" in g and "copy it exactly" in g.lower()
     skill = (REF.parent / "SKILL.md").read_text(encoding="utf-8")
     assert "references/page-template.html" in skill
+
+
+def test_template_draws_an_org_chart_of_roles():
+    html = _read("page-template.html")
+    assert 'class="wp-org"' in html and 'class="org-top"' in html
+    org = html.split('class="wp-org"', 1)[1].split("</div>\n</div>", 1)[0]
+    assert org.count('class="wp-team') >= 3
+    assert org.count('class="roles"') >= 3
+    g = _read("living-page.md").lower()
+    assert "org chart" in g and "roles only" in g and "each role once" in g

@@ -43,12 +43,26 @@ h3{font-size:20px;margin:18px 0 6px;color:var(--ink)}
 clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%,12px 50%)}
 .wp-strip li:first-child{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%)}
 .wp-strip.support li{background:var(--chip)}
-/* teams and sites */
-.wp-teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
-.wp-team{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--lime-deep);border-radius:10px;padding:10px 14px}
+/* org chart: the top role, a line across, then one column per department with its roles stacked under it */
+.wp-org{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 16px 16px}
+.org-top{width:max-content;max-width:100%;margin:0 auto;border:2px solid var(--accent);border-radius:10px;padding:8px 22px;text-align:center;background:var(--accent-soft)}
+.org-top b{display:block;color:var(--ink)}
+.org-top small{color:var(--muted);font-size:16px}
+.wp-org .wp-teams{position:relative;margin-top:30px;padding-top:22px;border-top:3px solid var(--line)}
+.wp-org .wp-teams::before{content:"";position:absolute;left:50%;top:-33px;height:30px;border-left:3px solid var(--line)}
+.wp-teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.wp-team{position:relative;background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--lime-deep);border-radius:10px;padding:10px 14px}
+.wp-org .wp-team::before{content:"";position:absolute;left:50%;top:-25px;height:20px;border-left:3px solid var(--line)}
+.wp-team.dash{border-top-style:dashed;border-top-color:var(--accent)}
 .wp-team b{display:block;color:var(--ink)}
 .wp-team small{color:var(--muted);font-size:16px}
-.wp-team ul{margin:6px 0 0;padding-left:18px;font-size:16px}
+.wp-team ul{margin:8px 0 0;font-size:16px}
+.wp-team ul.roles{list-style:none;padding:0 0 0 14px;border-left:3px solid var(--line)}
+.wp-team ul.roles li{position:relative;border:1px solid var(--line);border-radius:6px;padding:3px 8px;margin:6px 0;background:var(--bg)}
+.wp-team ul.roles li::before{content:"";position:absolute;left:-15px;top:50%;width:13px;border-top:3px solid var(--line)}
+.wp-team ul.roles li.dash{border-style:dashed}
+.wp-team ul.weekly{padding-left:18px;color:var(--body)}
+.wp-team ul.weekly::before{content:"Every week";display:block;margin-left:-18px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)}
 .sites{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:14px}
 .sites div{border-left:4px solid var(--accent);padding:4px 12px;font-size:17px;background:var(--panel)}
 .sites div.gone{border-left-color:var(--line);color:var(--muted);text-decoration:line-through}
@@ -97,7 +111,8 @@ th{background:var(--chip);color:var(--ink)}
 h1,h2{font-family:"Space Grotesk","DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);letter-spacing:-0.02em;text-wrap:balance}
 h2{border-left:3px solid var(--lime-deep);padding-left:12px}
 .foot{max-width:1440px;margin:0 auto;padding:16px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
-@media (max-width:700px){body{font-size:18px}.lanebox{display:none}.wp-cards{display:block}}
+@media (max-width:700px){body{font-size:18px}.lanebox{display:none}.wp-cards{display:block}
+.wp-org .wp-teams{border-top:0;margin-top:12px;padding-top:0}.wp-org .wp-teams::before,.wp-org .wp-team::before{display:none}}
 </style>
 </head>
 <body>
@@ -189,13 +204,18 @@ h2{border-left:3px solid var(--lime-deep);padding-left:12px}
 </ul>
 
 <h2>Teams and sites</h2>
-<!-- one .wp-team per department: the leading role, never a name or a count. Every-week list once known. -->
+<!-- The org chart. Roles only: never a name, never a count, each role once. The top box is the
+     business's top role. One .wp-team per department: its name, its leading role, then the other
+     roles in it, then its every-week list once known. Add "dash" to anything not yet confirmed. -->
+<div class="wp-org">
+<div class="org-top"><b>Managing Director</b><small>Ridgeline Steel</small></div>
 <div class="wp-teams">
-<div class="wp-team"><b>Sales</b><small>led by the Sales Manager</small><ul><li>Answer enquiries</li><li>Price and quote</li><li>Follow up quotes</li></ul></div>
-<div class="wp-team dash"><b>Drafting</b><small>led by the Drafting Manager</small></div>
-<div class="wp-team"><b>Workshop</b><small>led by the Production Manager <span class="by">added by the Production Manager</span></small><ul><li>Cut and weld</li><li>Finish</li><li>Report problems back to Drafting</li></ul></div>
-<div class="wp-team dash"><b>Dispatch</b><small>led by the Dispatch Lead</small></div>
-<div class="wp-team"><b>Accounts</b><small>led by the Finance Manager</small><ul><li>Invoicing</li><li>Chasing payments</li><li>Paying suppliers</li></ul></div>
+<div class="wp-team"><b>Sales</b><small>led by the Sales Manager</small><ul class="roles"><li>Estimator</li><li>Sales Coordinator</li></ul><ul class="weekly"><li>Answer enquiries</li><li>Price and quote</li><li>Follow up quotes</li></ul></div>
+<div class="wp-team dash"><b>Drafting</b><small>led by the Drafting Manager</small><ul class="roles"><li>Drafter</li><li class="dash">Drafter, working remotely</li></ul></div>
+<div class="wp-team"><b>Workshop</b><small>led by the Production Manager</small><ul class="roles"><li>Fabricator and welder</li><li>Finisher</li></ul><ul class="weekly"><li>Cut and weld</li><li>Finish</li><li>Report problems back to Drafting <span class="by">added by the Production Manager</span></li></ul></div>
+<div class="wp-team dash"><b>Dispatch</b><small>led by the Dispatch Lead</small><ul class="roles"><li>Driver</li><li>Yard hand, Brisbane</li></ul></div>
+<div class="wp-team"><b>Accounts</b><small>led by the Finance Manager</small><ul class="roles"><li>Accounts Officer</li></ul><ul class="weekly"><li>Invoicing</li><li>Chasing payments</li><li>Paying suppliers</li></ul></div>
+</div>
 </div>
 <!-- one div per site; a site that has closed gets class="gone" -->
 <div class="sites">

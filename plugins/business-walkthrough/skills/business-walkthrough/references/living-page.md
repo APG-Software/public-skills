@@ -20,10 +20,15 @@ clean page they keep). Copy their structure and class names. Never copy their co
 4. **The customer's journey** (`wp-strip`): one journey strip per service line (the audit's value-chain strip), the stages left to
    right as chevrons in their words, and a **behind the scenes** row under them for the
    supporting work (buying, hiring, systems, finance).
-5. **Organisation** (`wp-teams`): an org chart by department, one box per department
-   (`wp-team`) with the leading role under the name, and the **sites** as pins with what
-   happens at each. **No names, no counts, no reporting lines.** Offshore appears only as a
-   place. After Part 4, each department box also carries a short **every week** list.
+5. **Organisation** (`wp-org`): an **org chart** drawn exactly as the org chart block in
+   `references/page-template.html`. The business's top role sits at the top, with a line down to
+   one box per department (`wp-team`). Each box holds the department's name, its leading role,
+   and the other roles in it, stacked under it (`roles`). The **sites** sit under the chart as
+   pins, with what happens at each. **Roles only: no names, no counts, and each role once**, so
+   three estimators are one "Estimator". Offshore appears only as a place. Anything not yet
+   confirmed is dashed. After Part 4, each department box also carries a short **every week**
+   list. Use this same org chart on the live page in the room, so the leadership team can look
+   at it and correct it.
 6. **How the work moves** (`wp-lane`): a swimlane per service line, under its journey strip,
    drawn in inline SVG:
    - one lane per department, the journey's stages as columns;
