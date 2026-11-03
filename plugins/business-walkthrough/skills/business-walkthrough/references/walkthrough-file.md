@@ -34,18 +34,19 @@ for a person. Write every section, in this order.
 - **Still open** lists every gap left at the end of the run, numbered, each with its kind, the
   question that covers it and who could answer it. `open_gaps` is how many there are.
   `status` is `complete` only when `open_gaps` is 0; otherwise `incomplete`. Never list time,
-  pay, volume or headcount as a gap.
+  pay or volume as a gap.
 - The **Questions log** has a `Run` column. A question asked again in a later run keeps its
   number, narrowed in brackets: `Q13 (Workshop)`.
 - **The typical-job swimlanes are not reference jobs.** They describe how a typical job moves, not
   any specific job. Write `reference_jobs: none` in the header, always.
-- **No names, emails, phone numbers or counts of people.** Teams by role ("led by the Design
+- **No names, emails or phone numbers.** The only count of people is each department's size, on
+  its Teams line ("4 people"). Teams by role ("led by the Design
   Manager"). Customers and suppliers as "builder A", "supplier A". Offshore as a place.
 - **No time, pay or volume figures.** If someone offered one, write it under the Questions log as
   `offered, not asked`, with no number.
 - **No passwords, logins, bank or card details, ever.**
-- **Teams** lines name the department, its leading role, then the other roles in it after a
-  colon: roles only, each once, so the org chart can be drawn from the file.
+- **Teams** lines name the department, its leading role and how many people are in it, then the
+  other roles after a colon: roles each once, so the org chart can be drawn from the file.
 - Step numbers match the page everywhere.
 - `consent_to_send` and `sent_via` start as `not asked` and `not sent`. If Adam downloads it in
   the room, set `sent_via: downloaded by Adam in the room`. In a later run without Adam, set
@@ -110,11 +111,11 @@ sent_via: downloaded by Adam in the room
 ## Teams and sites
 
 **Teams**
-- Sales, led by the Sales Manager: Estimator, Sales Coordinator. (confirmed in the room)
-- Drafting, led by the Drafting Manager: Drafter, some working remotely. (confirmed in the room)
-- Workshop, led by the Production Manager: Fabricator and welder, Finisher. (confirmed in the room)
-- Dispatch, led by the Dispatch Lead: Driver, Yard hand in Brisbane. (from their documents)
-- Accounts, led by the Finance Manager: Accounts Officer. (confirmed in the room)
+- Sales, led by the Sales Manager, 4 people: Estimator, Sales Coordinator. (confirmed in the room)
+- Drafting, led by the Drafting Manager, 3 people: Drafter, some working remotely. (confirmed in the room)
+- Workshop, led by the Production Manager, 6 people: Fabricator and welder, Finisher. (confirmed in the room)
+- Dispatch, led by the Dispatch Lead, 3 people: Driver, Yard hand in Brisbane. (from their documents)
+- Accounts, led by the Finance Manager, 2 people: Accounts Officer. (confirmed in the room)
 
 **Every week** (the three things each team named)
 - Sales: answer enquiries, price and quote, follow up quotes. (confirmed in the room)

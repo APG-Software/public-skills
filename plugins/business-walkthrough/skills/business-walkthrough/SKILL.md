@@ -2,7 +2,7 @@
 name: business-walkthrough
 description: Walks a business's leadership team through how their business runs, in about an hour, while Adam from APG guides. Opens by naming the six parts and asking the room to talk rather than type. Starts from the business's context bundle (a zip from APG) or their website, then draws what they sell, the customer's journey through the business, the departments and sites, how a typical job moves team by team and system by system, and where work gets stuck, collecting the room's own ideas. Each part is drawn on one page that updates as they talk, and every gap is asked as an open question that invites a long spoken answer. Ends with one file for Adam and a clean page the business keeps. Also opens an existing walkthrough file, shows the page first, lists what's still open, and lets the next person add to the same file. Use when someone types /business-walkthrough, says "let's do the walkthrough", "business walkthrough" or "how we work", drops in a walkthrough file, or Adam says to start.
 metadata:
-  version: 0.4.2
+  version: 0.4.3
 ---
 
 # Business walkthrough
@@ -52,8 +52,10 @@ end into **one file for Adam** (`references/walkthrough-file.md`).
 2. **Never ask about time, pay or volumes.** No "how long", "how often", "how many hours", "how
    many jobs", "per week", "what's wasted" or "what goes wrong". If they offer a number, don't
    write it on the page; note it in the file as `offered, not asked`.
-3. **Never put on screen:** anyone's name, how many people are in a team, who reports to whom,
-   anyone's email, or what offshore staff do. Offshore appears only as a place ("Team members in
+3. **Never put on screen:** anyone's name, who reports to whom, anyone's email, or what
+   offshore staff do. The one number of people that goes on the page is each department's size,
+   in its box on the org chart ("Sales · 4 people"), from the staff list in the bundle or what
+   the room says. Offshore appears only as a place ("Team members in
    the Philippines"). Teams are named by role ("Design team, led by the Design Manager"). If
    someone says a name, use the role instead.
 4. **Part 4 is a typical job, not a specific real job.** Never ask for a job number, a customer
@@ -269,7 +271,7 @@ job's been won?"
 **Q7.** Part 3 of 6 · your organisation. Here are the teams we know of. Tell me how the business is set up: the teams, what each one looks after, and anything that's changed recently.
 Things you could talk about:
 - any team missing, or any that's been merged or split
-- the main roles in each team (the roles, not the people)
+- the main roles in each team (the roles, not the people), and roughly how many people are in each
 - teams that are small but really are their own team
 - work that's shared between teams, or that nobody really owns
 - anyone working remotely or from another country (just the place, no names)
@@ -288,7 +290,7 @@ _(e.g. "Office and workshop are in Newcastle. There's a yard in Brisbane that ho
 
 Draw the **org chart** exactly as the org chart block in `references/page-template.html`: the
 top role, then one box per department with its leading role and the other roles in it, and the
-**sites** as pins underneath. Roles only: no names, no counts, each role once. Ask the room to
+**sites** as pins underneath. Roles, each once, and each department's size in its box. No names. Ask the room to
 look at the chart and say what's missing or in the wrong place. Then the loop.
 
 ## Part 4 of 6 · how the work moves
@@ -406,7 +408,7 @@ Then finish:
    download. If you can't make files here, show it in one copyable block.
 2. **Make the page they keep** as a new page, as `references/living-page.md` says: what they
    sell, the journeys, the organisation and sites, the swimlanes and systems, with no waiting
-   points, no ideas, no names and no counts.
+   points, no ideas and no names.
 3. Send this:
 
 ```say
@@ -501,12 +503,12 @@ question that covers it (Q1 to Q20 above), and to whoever the file says could an
    `assumed`, and every View A / View B or `Also said:` line.
 4. **Thin coverage:** a service line with a journey but no swimlane; a product with no
    journey; a swimlane step with no system; a stage with no team; a team with no every-week
-   list; a behind-the-scenes item with no owner; a site with no team.
+   list; a department with no size; a behind-the-scenes item with no owner; a site with no team.
 5. **Says two things:** two lines in the file that don't agree. Three at most.
 6. **Dropped since the bundle:** something in the context bundle or starter page that the
    file never mentions. Only if the bundle is in this Project.
 
-**Never a gap:** anything about time, pay, volume or how many people, or anything logged as
+**Never a gap:** anything about time, pay or volume, or anything logged as
 `offered, not asked`. Hard rule 2 still applies.
 
 Put the gaps in the page's **Still open** panel (`wp-open`), grouped by part, with the

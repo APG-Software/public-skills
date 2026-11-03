@@ -76,8 +76,10 @@ def test_page_template_is_complete_and_clean():
               "Where work waits", "Teams and sites", "Your systems", "Ideas and repeated work",
               "Parking list", "Still open"):
         assert f"<h2>{h}</h2>" in html, h
-    text = re.sub(r"<[^>]+>", " ", re.sub(r"<!--.*?-->", " ", html, flags=re.S)).lower()
-    assert not re.search(r"\b\d+\s+(people|staff|fte)\b", text)
+    sized = re.sub(r'<span class="size">\d+ people</span>', " ", html)
+    sized = re.sub(r"(<div class=\"org-top\">.*?</div>)", " ", sized, flags=re.S)
+    text = re.sub(r"<[^>]+>", " ", re.sub(r"<!--.*?-->", " ", sized, flags=re.S)).lower()
+    assert not re.search(r"\b\d+\s+(people|staff|fte)\b", text), "a count outside the org chart"
     for w in BANNED:
         assert w not in text, w
 
@@ -107,4 +109,13 @@ def test_template_draws_an_org_chart_of_roles():
     assert org.count('class="wp-team') >= 3
     assert org.count('class="roles"') >= 3
     g = _read("living-page.md").lower()
-    assert "org chart" in g and "roles only" in g and "each role once" in g
+    assert "org chart" in g and "roles, each once" in g and "no names" in g
+
+
+def test_every_department_box_shows_its_size():
+    html = _read("page-template.html")
+    org = html.split('class="wp-org"', 1)[1].split("</div>\n</div>", 1)[0]
+    boxes = re.findall(r'<div class="wp-team[^"]*">(.*?)</div>', org, re.S)
+    assert boxes and all(re.search(r'<span class="size">\d+ people</span>', b) for b in boxes)
+    g = _read("living-page.md").lower()
+    assert "how many people are in it" in g

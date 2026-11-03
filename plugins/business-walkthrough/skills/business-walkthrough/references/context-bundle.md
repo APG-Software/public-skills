@@ -32,7 +32,8 @@ you have.
 
 Every item has `"status": "draft"` until the room confirms it. Ids are short and lowercase; a
 journey names the service line it belongs to with `line`. Systems name the stages they're used
-in. Nothing here is a person's name, a headcount or a number of any kind.
+in. Nothing here is a person's name. The only number is a department's size (`"people": 4`),
+counted from the staff list, so the org chart can show it.
 
 ```json
 {
@@ -50,10 +51,10 @@ in. Nothing here is a person's name, a headcount or a number of any kind.
     {"name": "Hiring and training", "status": "draft"}
   ],
   "departments": [
-    {"id": "sales", "name": "Sales", "led_by": "Sales Manager", "status": "draft"},
-    {"id": "drafting", "name": "Drafting", "led_by": "not known", "status": "draft"},
-    {"id": "workshop", "name": "Workshop", "led_by": "not known", "status": "draft"},
-    {"id": "accounts", "name": "Accounts", "led_by": "not known", "status": "draft"}
+    {"id": "sales", "name": "Sales", "led_by": "Sales Manager", "people": 4, "status": "draft"},
+    {"id": "drafting", "name": "Drafting", "led_by": "not known", "people": 3, "status": "draft"},
+    {"id": "workshop", "name": "Workshop", "led_by": "not known", "people": 6, "status": "draft"},
+    {"id": "accounts", "name": "Accounts", "led_by": "not known", "people": 2, "status": "draft"}
   ],
   "sites": [
     {"name": "Newcastle", "does": "Office and workshop", "status": "draft"},

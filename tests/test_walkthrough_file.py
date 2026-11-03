@@ -47,7 +47,10 @@ def test_every_line_is_marked():
 def test_no_names_emails_or_counts_in_example():
     _, rest = _example()
     assert "@" not in rest
-    assert not re.search(r"\b\d+\s+(people|staff|fte)\b", rest.lower())
+    teams = rest.split("**Teams**", 1)[1].split("\n\n", 1)[0]
+    outside = rest.replace(teams, "")
+    assert not re.search(r"\b\d+\s+(people|staff|fte)\b", outside.lower()), "a count outside Teams"
+    assert all(re.search(r", \d+ people:", l) for l in teams.splitlines() if l.startswith("- "))
 
 
 def test_example_has_two_runs_in_one_file():

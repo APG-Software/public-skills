@@ -54,7 +54,8 @@ clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%
 .wp-team{position:relative;background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--lime-deep);border-radius:10px;padding:10px 14px}
 .wp-org .wp-team::before{content:"";position:absolute;left:50%;top:-25px;height:20px;border-left:3px solid var(--line)}
 .wp-team.dash{border-top-style:dashed;border-top-color:var(--accent)}
-.wp-team b{display:block;color:var(--ink)}
+.wp-team b{display:block;color:var(--ink);padding-right:90px}
+.wp-team .size{position:absolute;top:10px;right:10px;font-size:15px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 10px}
 .wp-team small{color:var(--muted);font-size:16px}
 .wp-team ul{margin:8px 0 0;font-size:16px}
 .wp-team ul.roles{list-style:none;padding:0 0 0 14px;border-left:3px solid var(--line)}
@@ -204,17 +205,17 @@ h2{border-left:3px solid var(--lime-deep);padding-left:12px}
 </ul>
 
 <h2>Teams and sites</h2>
-<!-- The org chart. Roles only: never a name, never a count, each role once. The top box is the
+<!-- The org chart. Roles each once, never a name. Each department shows its size; the top box shows the total. The top box is the
      business's top role. One .wp-team per department: its name, its leading role, then the other
      roles in it, then its every-week list once known. Add "dash" to anything not yet confirmed. -->
 <div class="wp-org">
-<div class="org-top"><b>Managing Director</b><small>Ridgeline Steel</small></div>
+<div class="org-top"><b>Managing Director</b><small>Ridgeline Steel · 19 people</small></div>
 <div class="wp-teams">
-<div class="wp-team"><b>Sales</b><small>led by the Sales Manager</small><ul class="roles"><li>Estimator</li><li>Sales Coordinator</li></ul><ul class="weekly"><li>Answer enquiries</li><li>Price and quote</li><li>Follow up quotes</li></ul></div>
-<div class="wp-team dash"><b>Drafting</b><small>led by the Drafting Manager</small><ul class="roles"><li>Drafter</li><li class="dash">Drafter, working remotely</li></ul></div>
-<div class="wp-team"><b>Workshop</b><small>led by the Production Manager</small><ul class="roles"><li>Fabricator and welder</li><li>Finisher</li></ul><ul class="weekly"><li>Cut and weld</li><li>Finish</li><li>Report problems back to Drafting <span class="by">added by the Production Manager</span></li></ul></div>
-<div class="wp-team dash"><b>Dispatch</b><small>led by the Dispatch Lead</small><ul class="roles"><li>Driver</li><li>Yard hand, Brisbane</li></ul></div>
-<div class="wp-team"><b>Accounts</b><small>led by the Finance Manager</small><ul class="roles"><li>Accounts Officer</li></ul><ul class="weekly"><li>Invoicing</li><li>Chasing payments</li><li>Paying suppliers</li></ul></div>
+<div class="wp-team"><b>Sales</b><span class="size">4 people</span><small>led by the Sales Manager</small><ul class="roles"><li>Estimator</li><li>Sales Coordinator</li></ul><ul class="weekly"><li>Answer enquiries</li><li>Price and quote</li><li>Follow up quotes</li></ul></div>
+<div class="wp-team dash"><b>Drafting</b><span class="size">3 people</span><small>led by the Drafting Manager</small><ul class="roles"><li>Drafter</li><li class="dash">Drafter, working remotely</li></ul></div>
+<div class="wp-team"><b>Workshop</b><span class="size">6 people</span><small>led by the Production Manager</small><ul class="roles"><li>Fabricator and welder</li><li>Finisher</li></ul><ul class="weekly"><li>Cut and weld</li><li>Finish</li><li>Report problems back to Drafting <span class="by">added by the Production Manager</span></li></ul></div>
+<div class="wp-team dash"><b>Dispatch</b><span class="size">3 people</span><small>led by the Dispatch Lead</small><ul class="roles"><li>Driver</li><li>Yard hand, Brisbane</li></ul></div>
+<div class="wp-team"><b>Accounts</b><span class="size">2 people</span><small>led by the Finance Manager</small><ul class="roles"><li>Accounts Officer</li></ul><ul class="weekly"><li>Invoicing</li><li>Chasing payments</li><li>Paying suppliers</li></ul></div>
 </div>
 </div>
 <!-- one div per site; a site that has closed gets class="gone" -->

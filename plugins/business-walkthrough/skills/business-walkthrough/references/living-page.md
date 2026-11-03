@@ -24,9 +24,11 @@ clean page they keep). Copy their structure and class names. Never copy their co
    `references/page-template.html`. The business's top role sits at the top, with a line down to
    one box per department (`wp-team`). Each box holds the department's name, its leading role,
    and the other roles in it, stacked under it (`roles`). The **sites** sit under the chart as
-   pins, with what happens at each. **Roles only: no names, no counts, and each role once**, so
-   three estimators are one "Estimator". Offshore appears only as a place. Anything not yet
-   confirmed is dashed. After Part 4, each department box also carries a short **every week**
+   pins, with what happens at each. **Roles, each once, and no names**, so three estimators are
+   one "Estimator". Each department's box shows **how many people are in it** ("4 people"), and
+   the top box shows the total, from the staff list in the bundle or what the room says; leave a
+   size off if nobody knows. Offshore appears only as a place. Anything not yet confirmed is
+   dashed. After Part 4, each department box also carries a short **every week**
    list. Use this same org chart on the live page in the room, so the leadership team can look
    at it and correct it.
 6. **How the work moves** (`wp-lane`): a swimlane per service line, under its journey strip,
@@ -124,7 +126,7 @@ lists. Then **remove**:
 - every View A / View B fork (use the view the room settled on; if none, leave the step plain and
   say so in the file);
 - the parking list;
-- any name, count or email that slipped in.
+- any name or email that slipped in. Keep each department's size.
 
 Under the title: "As checked by the leadership team on [date]." This page is theirs to share.
 
