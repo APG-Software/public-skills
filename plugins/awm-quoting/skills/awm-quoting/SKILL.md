@@ -2,7 +2,7 @@
 name: awm-quoting
 description: Quoting demo for AWM Amaroo, a commercial furniture and joinery manufacturer. Turns a fit-out furniture schedule and a joinery parts list (a CSV or Excel export from the design program) into an internal costing sheet with the board, edging, machining, hardware and labour worked out, then a client quote. Use when someone says "AWM quote", "quote this fit-out", "price this parts list", "quoting demo", "run the example" or drops in a parts list or furniture schedule. Start straight away with the opening message; never ask what they want first. Every rate is invented for the demo.
 metadata:
-  version: 0.1.0
+  version: 0.2.0
 ---
 
 # AWM quoting demo: schedule and parts list to quote
@@ -82,16 +82,26 @@ re-run and show it again.
 
 ## 4. "Go": the client quote
 
-On go, apply anything said with it, then always re-cost before rendering:
+"Go" is the estimator's approval. Apply anything said with it, set `approval.reviewer` (the
+estimator's name, or "Estimator" if none was given) and `approval.approved_at` to today, then
+always re-cost before rendering:
 
 ```bash
 python3 "$SKILL_DIR/scripts/build-costing.py" work/case.json work/costing.json
-python3 "$SKILL_DIR/scripts/render.py" quote work/case.json work/costing.json output/quote.html --pdf
+python3 "$SKILL_DIR/scripts/render-quote.py" work/case.json work/costing.json output/quote.html --pdf
 ```
 
-Share `output/quote.pdf` with the total inc GST in one line. Close with one line on what a real
-setup would do next: the same parts list goes on to production, and the accepted quote becomes
-the job in their system.
+This makes two things:
+
+- `output/quote.pdf`: the client quote. A photo cover, the scope with a price per line and the
+  investment panel, what is and is not included with next steps and acceptance, then terms.
+- `output/job-record.csv`: the row that goes into their project or job system. It holds the quote
+  number, client, value, workstation positions, board sheets, CNC and install hours, plus empty
+  columns for order, production, delivery, install, invoiced and paid.
+
+Share both. Reply with the total inc GST, and the job record as a two-column table of the fields
+that have values. Close with one line on what a real setup would do next: the row is pushed into
+their job system, and the same parts list goes on to production when the quote is accepted.
 
 ## Rules that hold in a demo
 
@@ -119,5 +129,6 @@ If no PDF renderer is found, share the HTML and say the PDF was not made.
 | `references/example-case.json` | The example job, and the case format by example |
 | `references/example-parts-list.csv` | The example joinery parts list |
 | `references/quoting-process.md` | The assumed quoting process and the parts list columns |
+| `assets/cover-photo.jpg` | The quote cover photo (AI-generated for this demo) |
 
 Swap `data/` for the business's real price file and rates, and the same skill quotes for real.

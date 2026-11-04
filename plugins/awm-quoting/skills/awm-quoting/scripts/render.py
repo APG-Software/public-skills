@@ -1,9 +1,8 @@
-"""Render the costing sheet (internal) or the client quote from a costed case.
+"""Render the internal costing sheet from a costed case.
 
     python3 render.py costing work/case.json work/costing.json output/costing-sheet.html [--pdf]
-    python3 render.py quote   work/case.json work/costing.json output/quote.html [--pdf]
 
-The quote never shows a cost, a rate or the margin.
+The client quote is render-quote.py.
 """
 import datetime
 import html
@@ -109,44 +108,18 @@ def costing(case, k):
     return body
 
 
-def quote(case, k, company):
-    t, s = k["totals"], k["site"]
-    rows = "".join(f"<tr><td>{esc(f['description'])}{'<br><span class=note>'+esc(f['note'])+'</span>' if f['note'] else ''}</td>"
-                   f"<td class=n>{f['qty']}</td><td class=n>{money(f['sell_each'])}</td><td class=n>{money(f['sell'])}</td></tr>"
-                   for f in k["furniture"])
-    jrows = "".join(f"<tr><td>{esc(j['unit'])}<br><span class=note>{esc(j['type'])}, made to the drawings</span></td>"
-                    f"<td class=n>{j['qty']}</td><td class=n></td><td class=n>{money(j['sell'])}</td></tr>"
-                    for j in k["joinery"])
-    excl = "".join(f"<li>{esc(e)}</li>" for e in case.get("exclusions", [])) or "<li>None</li>"
-    terms = json.loads((SKILL / "data/terms.json").read_text(encoding="utf-8"))
-    tl = "".join(f"<li>{esc(x)}</li>" for x in terms["clauses"])
-    when = "after hours" if s["after_hours"] else "in normal working hours"
-    return f"""<h1>Quotation</h1>{meta(case)}
-<p>Thank you for the opportunity to quote the {esc(case['project']['name'])}. Everything below is made or supplied by {esc(company['name'])}, delivered and installed.</p>
-<h2>Workstations and furniture</h2><table><tr><th>Item</th><th class=n>Qty</th><th class=n>Each</th><th class=n>Total</th></tr>{rows}</table>
-<h2>Joinery</h2><table><tr><th>Item</th><th class=n>Qty</th><th></th><th class=n>Total</th></tr>{jrows}</table>
-<h2>Delivery and installation</h2><table><tr><td>{s['deliveries']} deliveries to site, installation {when}</td><td class=n>{money(s['sell'])}</td></tr></table>
-<h2>Investment</h2><table>
-<tr><td>Total ex GST</td><td class=n>{money(t['price_ex_gst'])}</td></tr>
-<tr><td>GST</td><td class=n>{money(t['gst'])}</td></tr>
-<tr class=total><td>Total inc GST</td><td class=n>{money(t['price_inc_gst'])}</td></tr></table>
-<h2>Not included</h2><ul>{excl}</ul>
-<h2>Next steps</h2><ul><li>Payment: {esc(company['payment'])}.</li><li>{esc(company['lead_time'])}.</li>
-<li>Valid for {case['quote'].get('valid_days', company['validity_days'])} days.</li></ul>
-<h2>{esc(terms['title'])}</h2><ul>{tl}</ul>"""
-
 
 def main():
     args = [a for a in sys.argv[1:] if a != "--pdf"]
-    if len(args) != 4 or args[0] not in ("costing", "quote"):
+    if len(args) != 4 or args[0] != "costing":
         sys.exit(__doc__)
     kind, case_p, cost_p, out_p = args
     case = json.loads(pathlib.Path(case_p).read_text(encoding="utf-8"))
     k = json.loads(pathlib.Path(cost_p).read_text(encoding="utf-8"))
     company = json.loads((SKILL / "data/company.json").read_text(encoding="utf-8"))
     case["quote"]["date"] = case["quote"].get("date") or datetime.date.today().isoformat()
-    body = costing(case, k) if kind == "costing" else quote(case, k, company)
-    title = ("Costing sheet " if kind == "costing" else "Quotation ") + case["quote"]["number"]
+    body = costing(case, k)
+    title = "Costing sheet " + case["quote"]["number"]
     out = pathlib.Path(out_p)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page(title, company, case, body), encoding="utf-8")

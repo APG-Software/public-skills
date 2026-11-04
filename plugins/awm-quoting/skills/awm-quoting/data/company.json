@@ -2,11 +2,40 @@
   "name": "AWM Amaroo",
   "tagline": "Commercial Furniture & Joinery",
   "website": "awm.net.au",
-  "locations": "Sydney factory and showroom · Melbourne showroom",
+  "locations": "Sydney factory and showroom \u00b7 Melbourne showroom",
   "colour": "#1d1d1b",
   "accent": "#b08d57",
   "estimator": "Estimating team",
   "validity_days": 30,
   "payment": "30% deposit on order, balance on practical completion",
-  "lead_time": "Manufactured in Sydney. Lead time confirmed on order"
+  "lead_time": "Manufactured in Sydney. Lead time confirmed on order",
+  "short_name": "AWM Amaroo",
+  "descriptor": "Furniture & Joinery",
+  "colours": {
+    "ink": "#1d1d1b",
+    "accent": "#9a7a4a",
+    "wash": "#f4f1ec"
+  },
+  "promises": [
+    [
+      "Made in Sydney",
+      "Joinery is made in our own factory, to your drawings and finishes."
+    ],
+    [
+      "One team, start to finish",
+      "The people who quote the job manage manufacture, delivery and install."
+    ],
+    [
+      "One price for the scope",
+      "Anything outside the listed scope is quoted and agreed before it happens."
+    ]
+  ],
+  "standard_includes": [
+    "Supply of all furniture listed",
+    "Manufacture of all joinery to the approved drawings",
+    "Site measure before joinery manufacture",
+    "Delivery to site",
+    "Installation and assembly on site",
+    "Removal of packaging from site"
+  ]
 }
