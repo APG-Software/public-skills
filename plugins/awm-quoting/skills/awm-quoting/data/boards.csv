@@ -1,0 +1,7 @@
+code,description,sheet_length_mm,sheet_width_mm,sheet_cost,edge_per_lm
+WHM16,"White melamine, 16mm",3600,1800,140,1.80
+COL16,"Decor colour board, 16mm",3600,1800,210,2.20
+HMR16,"Moisture-resistant board, 16mm",3600,1800,175,2.20
+WHM25,"White melamine, 25mm",3600,1800,190,2.60
+LAM33,"Laminated benchtop blank, 33mm",3600,900,320,4.50
+VEN19,"Timber veneer MDF, 19mm",2400,1200,420,6.00

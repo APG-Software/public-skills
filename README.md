@@ -1,11 +1,14 @@
 # Public skills from APG
 
 Guided question-and-answer setups that APG Software gives to the businesses it works with. They
-run in your own Claude account. Nothing in this repository is about any one business.
+run in your own Claude account. Apart from short-lived demos named after the business they were
+made for (built only from public information, with invented rates), nothing here is about any one
+business.
 
 | Type this | What it does | How long |
 |---|---|---|
 | **/business-walkthrough** | Your leadership team talks Claude through how the business runs. Claude draws it as you go so you can check it, and you keep the page at the end | About an hour, with Adam |
+| **/awm-quoting** | A demo for AWM Amaroo: a fit-out furniture schedule and a joinery parts list become a costing sheet and a client quote. Every rate is invented | A few minutes, on a call |
 
 ## Setup (once, about 5 minutes)
 

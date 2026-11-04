@@ -1,0 +1,20 @@
+{
+  "demo_notice": "Demo quote. AWM Amaroo product names are not used and every rate is invented for illustration.",
+  "quote": {"number": "Q-DEMO-0412", "date": "", "valid_days": 30},
+  "client": {"company": "Harbourline Legal", "contact": "Jordan Lee, Office Manager", "email": "jordan@example.com", "phone": "0400 000 000"},
+  "project": {"name": "Level 12 fit-out", "site": "1 Example Street, Sydney NSW", "builder": "Example Interiors (fit-out builder)", "after_hours": true, "deliveries": 2, "start": "Late January"},
+  "margin": 0.32,
+  "items": [
+    {"code": "WS-SS-4", "qty": 6, "note": "24 positions, white tops, black frames"},
+    {"code": "MA-2", "qty": 24},
+    {"code": "CH-TASK", "qty": 24},
+    {"code": "PED-MOB", "qty": 24},
+    {"code": "TBL-3600", "qty": 1, "note": "Boardroom"},
+    {"code": "TBL-2400", "qty": 2, "note": "Meeting rooms 1 and 2"},
+    {"code": "TBL-CAFE", "qty": 4}
+  ],
+  "parts_list": "references/example-parts-list.csv",
+  "joinery": [],
+  "assumptions": [],
+  "exclusions": ["Electrical and data connections", "Appliances and sinks", "Removal of existing furniture"]
+}

@@ -1,6 +1,8 @@
 {
   "name": "public-skills",
-  "owner": { "name": "APG Software" },
+  "owner": {
+    "name": "APG Software"
+  },
   "metadata": {
     "description": "Guided question-and-answer setups APG gives to the businesses it works with. Nothing in here is about any one business."
   },
@@ -9,6 +11,11 @@
       "name": "business-walkthrough",
       "source": "./plugins/business-walkthrough",
       "description": "/business-walkthrough: an hour with your leadership team, talking to Claude, that draws how your business runs so you can check it."
+    },
+    {
+      "name": "awm-quoting",
+      "source": "./plugins/awm-quoting",
+      "description": "/awm-quoting: demo for AWM Amaroo. A fit-out schedule and a joinery parts list become a costing sheet and a client quote. Demo rates only."
     }
   ]
 }

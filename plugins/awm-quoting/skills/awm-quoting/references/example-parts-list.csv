@@ -1,0 +1,40 @@
+unit,unit_type,unit_qty,part,material,length_mm,width_mm,qty,edges
+K1 Kitchen base cabinet 600,base_cabinet,5,Side,HMR16,720,560,2,1L
+K1 Kitchen base cabinet 600,base_cabinet,5,Bottom,HMR16,568,560,1,1L
+K1 Kitchen base cabinet 600,base_cabinet,5,Top rail,HMR16,568,100,2,1L
+K1 Kitchen base cabinet 600,base_cabinet,5,Back,HMR16,720,568,1,
+K1 Kitchen base cabinet 600,base_cabinet,5,Shelf,HMR16,566,520,1,1L
+K1 Kitchen base cabinet 600,base_cabinet,5,Door,COL16,716,596,1,2L2W
+K1 Kitchen base cabinet 600,base_cabinet,5,Hinge,HW-HINGE,,,2,
+K1 Kitchen base cabinet 600,base_cabinet,5,Handle,HW-HANDLE,,,1,
+K1 Kitchen base cabinet 600,base_cabinet,5,Leg,HW-LEG,,,4,
+K1 Kitchen base cabinet 600,base_cabinet,5,Shelf pin,HW-SHELFPIN,,,4,
+K2 Kitchen wall cabinet 600,wall_cabinet,4,Side,WHM16,720,330,2,1L
+K2 Kitchen wall cabinet 600,wall_cabinet,4,Top and bottom,WHM16,568,330,2,1L
+K2 Kitchen wall cabinet 600,wall_cabinet,4,Back,WHM16,720,568,1,
+K2 Kitchen wall cabinet 600,wall_cabinet,4,Shelf,WHM16,566,300,1,1L
+K2 Kitchen wall cabinet 600,wall_cabinet,4,Door,COL16,716,596,1,2L2W
+K2 Kitchen wall cabinet 600,wall_cabinet,4,Hinge,HW-HINGE,,,2,
+K2 Kitchen wall cabinet 600,wall_cabinet,4,Handle,HW-HANDLE,,,1,
+K3 Kitchen tall pantry 600,tall_cupboard,1,Side,HMR16,2100,580,2,1L
+K3 Kitchen tall pantry 600,tall_cupboard,1,Top and bottom,HMR16,568,580,2,1L
+K3 Kitchen tall pantry 600,tall_cupboard,1,Back,HMR16,2100,568,1,
+K3 Kitchen tall pantry 600,tall_cupboard,1,Shelf,HMR16,566,540,4,1L
+K3 Kitchen tall pantry 600,tall_cupboard,1,Door,COL16,2096,596,1,2L2W
+K3 Kitchen tall pantry 600,tall_cupboard,1,Hinge,HW-HINGE,,,4,
+K3 Kitchen tall pantry 600,tall_cupboard,1,Handle,HW-HANDLE,,,1,
+K4 Kitchen benchtop 3600,benchtop,1,Benchtop,LAM33,3600,600,1,1L2W
+R1 Reception counter 2400,reception_counter,1,Front panel,VEN19,2400,1100,1,2L2W
+R1 Reception counter 2400,reception_counter,1,End panel,VEN19,1100,700,2,2L1W
+R1 Reception counter 2400,reception_counter,1,Top,WHM25,2400,700,1,2L2W
+R1 Reception counter 2400,reception_counter,1,Inner carcass,WHM16,2300,680,3,1L
+R1 Reception counter 2400,reception_counter,1,Drawer runner set,HW-RUNNER,,,2,
+R1 Reception counter 2400,reception_counter,1,Cable grommet,HW-GROMMET,,,2,
+L1 Locker bank 12 door,locker_bank,2,Side,WHM16,1800,500,2,1L
+L1 Locker bank 12 door,locker_bank,2,Top and bottom,WHM16,1568,500,2,1L
+L1 Locker bank 12 door,locker_bank,2,Divider,WHM16,1768,480,3,1L
+L1 Locker bank 12 door,locker_bank,2,Shelf,WHM16,388,480,8,1L
+L1 Locker bank 12 door,locker_bank,2,Back,WHM16,1800,1568,1,
+L1 Locker bank 12 door,locker_bank,2,Door,COL16,580,386,12,2L2W
+L1 Locker bank 12 door,locker_bank,2,Hinge,HW-HINGE,,,24,
+L1 Locker bank 12 door,locker_bank,2,Cam lock,HW-LOCK,,,12,
