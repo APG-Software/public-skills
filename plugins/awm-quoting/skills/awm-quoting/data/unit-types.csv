@@ -1,8 +1,0 @@
-type,description,assembly_hours,install_hours
-base_cabinet,"Base cabinet",1.2,0.6
-wall_cabinet,"Wall cabinet",0.9,0.6
-tall_cupboard,"Tall cupboard",1.8,0.8
-benchtop,"Benchtop",0.5,1.0
-reception_counter,"Reception counter",8.0,4.0
-locker_bank,"Locker bank",3.0,1.5
-shelving,"Open shelving unit",0.6,0.4
